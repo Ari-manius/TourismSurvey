@@ -1,0 +1,61 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container wide">
+    <div class="section-header">
+        {% if lang == "fr" %}
+            <h2>Partie 4 : Sentiment d'attachement à l'île</h2>
+            <p>Les affirmations suivantes concernent votre sentiment d'attachement à votre lieu de vie et à votre communauté.</p>
+        {% else %}
+            <h2>Part 4: Place Attachment</h2>
+            <p>The following statements concern your sense of attachment to your place of residence and your community.</p>
+        {% endif %}
+    </div>
+
+    <div class="scale-ref">
+        {% if lang == "fr" %}
+            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span>
+        {% else %}
+            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span>
+        {% endif %}
+    </div>
+
+    <div class="question-card" style="padding: 0; overflow-x: auto;">
+    <table class="survey-table" style="margin-bottom: 0;">
+        <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
+        <tbody>
+            <tr><td class="statement">{% if lang == "fr" %}Je ressens un fort sentiment d'appartenance à ma communauté{% else %}I feel a strong sense of belonging to my community{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19a" value="1"></td><td class="radio-cell"><input type="radio" name="Q19a" value="2"></td><td class="radio-cell"><input type="radio" name="Q19a" value="3"></td><td class="radio-cell"><input type="radio" name="Q19a" value="4"></td><td class="radio-cell"><input type="radio" name="Q19a" value="5"></td><td class="radio-cell"><input type="radio" name="Q19a" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Je suis émotionnellement attaché(e) à cette communauté{% else %}I am emotionally attached to this community{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19b" value="1"></td><td class="radio-cell"><input type="radio" name="Q19b" value="2"></td><td class="radio-cell"><input type="radio" name="Q19b" value="3"></td><td class="radio-cell"><input type="radio" name="Q19b" value="4"></td><td class="radio-cell"><input type="radio" name="Q19b" value="5"></td><td class="radio-cell"><input type="radio" name="Q19b" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Faire partie de ma communauté est une part importante de mon identité{% else %}Being part of my community is an important part of my identity{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19c" value="1"></td><td class="radio-cell"><input type="radio" name="Q19c" value="2"></td><td class="radio-cell"><input type="radio" name="Q19c" value="3"></td><td class="radio-cell"><input type="radio" name="Q19c" value="4"></td><td class="radio-cell"><input type="radio" name="Q19c" value="5"></td><td class="radio-cell"><input type="radio" name="Q19c" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}J'ai confiance dans les membres de ma communauté pour me soutenir en cas de besoin{% else %}I trust members of my community to support me if needed{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19d" value="1"></td><td class="radio-cell"><input type="radio" name="Q19d" value="2"></td><td class="radio-cell"><input type="radio" name="Q19d" value="3"></td><td class="radio-cell"><input type="radio" name="Q19d" value="4"></td><td class="radio-cell"><input type="radio" name="Q19d" value="5"></td><td class="radio-cell"><input type="radio" name="Q19d" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Je participe activement aux activités et événements communautaires{% else %}I actively participate in community activities and events{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19e" value="1"></td><td class="radio-cell"><input type="radio" name="Q19e" value="2"></td><td class="radio-cell"><input type="radio" name="Q19e" value="3"></td><td class="radio-cell"><input type="radio" name="Q19e" value="4"></td><td class="radio-cell"><input type="radio" name="Q19e" value="5"></td><td class="radio-cell"><input type="radio" name="Q19e" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Je me sens pleinement intégré(e) à cette communauté et je m'y projette{% else %}I feel fully integrated into this community and see myself projecting into it{% endif %}</td>
+                <td class="radio-cell"><input type="radio" name="Q19f" value="1"></td><td class="radio-cell"><input type="radio" name="Q19f" value="2"></td><td class="radio-cell"><input type="radio" name="Q19f" value="3"></td><td class="radio-cell"><input type="radio" name="Q19f" value="4"></td><td class="radio-cell"><input type="radio" name="Q19f" value="5"></td><td class="radio-cell"><input type="radio" name="Q19f" value="99"></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <!-- Q20: Open text -->
+    <div class="question-card" style="margin-top: 25px;">
+    <div class="question-block">
+        <span class="question-label">{% if lang == "fr" %}Q20. Quels aspects de la vie quotidienne sur cette île et dans votre communauté contribuent le plus à votre bien-être (qualité de vie) ?{% else %}Q20. What aspects of daily life on this island and in your community contribute most to your well-being (quality of life)?{% endif %}</span>
+        <textarea name="Q20" rows="4"></textarea>
+    </div>
+    </div>
+
+    <div class="submit-row">
+        {% if lang == "fr" %}<button type="submit" class="otree-btn-next btn btn-primary">Suivant</button>{% else %}<button type="submit" class="otree-btn-next btn btn-primary">Next</button>{% endif %}
+    </div>
+</div>
+{{ endblock }}

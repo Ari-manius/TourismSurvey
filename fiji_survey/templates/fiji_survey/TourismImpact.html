@@ -1,0 +1,136 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container wide">
+    <div class="section-header">
+        {% if lang == "fr" %}
+            <h2>Partie 1 : Votre perception de l'impact du développement touristique</h2>
+            <p>Pour chacune des affirmations suivantes, veuillez d'abord indiquer à quel point cet aspect est <strong>important</strong> pour vous, puis évaluer votre niveau de <strong>satisfaction</strong> à l'égard de la situation actuelle sur votre île.</p>
+        {% else %}
+            <h2>Part 1: Tourism Impact Perception</h2>
+            <p>For each of the following statements, please first indicate how <strong>important</strong> this aspect is to you, then evaluate your level of <strong>satisfaction</strong> with the current situation on your island.</p>
+        {% endif %}
+    </div>
+
+    <div class="scale-ref">
+        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+            <div>
+                {% if lang == "fr" %}
+                    <strong>Importance :</strong><br>
+                    <span class="sc1">1 = Pas du tout important</span><br><span class="sc2">2 = Peu important</span><br><span class="sc3">3 = Moyennement important</span><br><span class="sc4">4 = Important</span><br><span class="sc5">5 = Très important</span>
+                {% else %}
+                    <strong>Importance:</strong><br>
+                    <span class="sc1">1 = Not at all important</span><br><span class="sc2">2 = Somewhat unimportant</span><br><span class="sc3">3 = Moderately important</span><br><span class="sc4">4 = Important</span><br><span class="sc5">5 = Very important</span>
+                {% endif %}
+            </div>
+            <div>
+                {% if lang == "fr" %}
+                    <strong>Satisfaction :</strong><br>
+                    <span class="sc1">1 = Très insatisfait(e)</span><br><span class="sc2">2 = Insatisfait(e)</span><br><span class="sc3">3 = Neutre</span><br><span class="sc4">4 = Satisfait(e)</span><br><span class="sc5">5 = Très satisfait(e)</span>
+                {% else %}
+                    <strong>Satisfaction:</strong><br>
+                    <span class="sc1">1 = Very dissatisfied</span><br><span class="sc2">2 = Dissatisfied</span><br><span class="sc3">3 = Neutral</span><br><span class="sc4">4 = Satisfied</span><br><span class="sc5">5 = Very satisfied</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="question-card" style="padding: 0; overflow-x: auto;">
+        <table class="survey-table paired" style="margin-bottom: 0;">
+            <colgroup>
+                <col style="width: auto;">
+                <col span="6" style="width: 30px;">
+                <col span="6" style="width: 30px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th rowspan="2" style="vertical-align: bottom;"></th>
+                    <th colspan="6" class="group-header">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</th>
+                    <th colspan="6" class="group-header col-divider">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</th>
+                </tr>
+                <tr>
+                    <th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th>
+                    <th class="radio-cell col-divider">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le tourisme joue un rôle important dans l'économie locale de cette île{% else %}Tourism plays an important role in the local economy of this island{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5a_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5a_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5a_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5a_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5a_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5a_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5a_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5a_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5a_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5a_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5a_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5a_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le tourisme offre des opportunités d'emploi et de revenus aux résidents{% else %}Tourism offers employment and income opportunities for residents{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5b_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5b_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5b_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5b_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5b_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5b_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5b_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5b_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5b_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5b_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5b_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5b_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le tourisme a contribué à l'amélioration des infrastructures locales{% else %}Tourism has contributed to the improvement of local infrastructure{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5c_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5c_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5c_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5c_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5c_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5c_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5c_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5c_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5c_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5c_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5c_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5c_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Les retombées économiques du tourisme profitent aussi aux populations les moins favorisées{% else %}The economic benefits of tourism also benefit disadvantaged populations{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5d_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5d_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5d_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5d_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5d_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5d_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5d_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5d_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5d_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5d_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5d_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5d_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le développement du tourisme a permis à des résidents locaux de créer leur propre entreprise{% else %}Tourism development has enabled local residents to start their own business{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5e_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5e_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5e_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5e_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5e_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5e_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5e_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5e_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5e_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5e_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5e_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5e_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le développement du tourisme a favorisé la cohésion et la fierté communautaire{% else %}Tourism development has fostered community cohesion and pride{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5f_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5f_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5f_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5f_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5f_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5f_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5f_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5f_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5f_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5f_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5f_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5f_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Les visiteurs respectent généralement la culture et les traditions locales{% else %}Visitors generally respect local culture and traditions{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5g_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5g_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5g_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5g_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5g_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5g_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5g_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5g_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5g_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5g_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5g_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5g_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le coût de la vie sur cette île reste abordable{% else %}The cost of living on this island remains affordable{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5h_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5h_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5h_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5h_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5h_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5h_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5h_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5h_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5h_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5h_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5h_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5h_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Les effets du tourisme sur les ressources naturelles et les écosystèmes sont bien gérés{% else %}The effects of tourism on natural resources and ecosystems are well managed{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5i_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5i_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5i_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5i_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5i_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5i_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5i_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5i_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5i_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5i_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5i_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5i_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}La gestion des déchets liés au tourisme est suffisante pour protéger l'environnement{% else %}Waste management related to tourism is sufficient to protect the environment{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5j_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5j_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5j_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5j_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5j_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5j_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5j_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5j_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5j_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5j_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5j_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5j_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le développement touristique a entraîné une augmentation du trafic routier et de la congestion{% else %}Tourism development has led to an increase in traffic and congestion{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5k_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5k_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5k_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5k_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5k_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5k_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5k_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5k_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5k_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5k_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5k_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5k_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le tourisme a entraîné une augmentation des nuisances sonores{% else %}Tourism has led to an increase in noise pollution{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5l_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5l_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5l_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5l_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5l_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5l_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5l_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5l_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5l_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5l_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5l_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5l_satisfaction" value="99"></td>
+                </tr>
+                <tr>
+                    <td class="statement">{% if lang == "fr" %}Le tourisme contribue à la préservation du patrimoine culturel de cette île{% else %}Tourism contributes to the preservation of the cultural heritage of this island{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" name="Q5m_importance" value="1"></td><td class="radio-cell"><input type="radio" name="Q5m_importance" value="2"></td><td class="radio-cell"><input type="radio" name="Q5m_importance" value="3"></td><td class="radio-cell"><input type="radio" name="Q5m_importance" value="4"></td><td class="radio-cell"><input type="radio" name="Q5m_importance" value="5"></td><td class="radio-cell"><input type="radio" name="Q5m_importance" value="99"></td>
+                    <td class="radio-cell col-divider"><input type="radio" name="Q5m_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" name="Q5m_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" name="Q5m_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" name="Q5m_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" name="Q5m_satisfaction" value="5"></td><td class="radio-cell"><input type="radio" name="Q5m_satisfaction" value="99"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="submit-row">
+        {% if lang == "fr" %}<button type="submit" class="otree-btn-next btn btn-primary">Suivant</button>{% else %}<button type="submit" class="otree-btn-next btn btn-primary">Next</button>{% endif %}
+    </div>
+</div>
+{{ endblock }}

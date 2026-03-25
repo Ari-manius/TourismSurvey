@@ -1,0 +1,61 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container">
+    <div class="section-header">
+        {% if lang == "fr" %}
+            <h2>Partie 1 Suite : Évaluation globale du tourisme</h2>
+        {% else %}
+            <h2>Part 1 Continued: Overall Tourism Assessment</h2>
+        {% endif %}
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+        <div class="scale-input">
+            <span class="scale-label">{% if lang == "fr" %}Q6. Sur une échelle de 0 à 10, dans quelle mesure soutenez-vous le développement du tourisme sur cette île ?{% else %}Q6. On a scale of 0 to 10, to what extent do you support tourism development on this island?{% endif %}</span>
+            <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout favorable &middot; 10 = Tout à fait favorable{% else %}0 = Not at all in favor &middot; 10 = Completely in favor{% endif %}</div>
+            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" name="Q6" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" name="Q6" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" name="Q6" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" name="Q6" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" name="Q6" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" name="Q6" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" name="Q6" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" name="Q6" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" name="Q6" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" name="Q6" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" name="Q6" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" name="Q6" value="99"></label></div>
+        </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+        <div class="question-block">
+            <span class="question-label">{% if lang == "fr" %}Q7. D'après vous, le nombre de touristes qui visitent cette île chaque année est :{% else %}Q7. In your opinion, the number of tourists visiting this island each year is:{% endif %}</span>
+            <div class="choices">
+                {% if lang == "fr" %}
+                    <div class="form-check"><input type="radio" name="Q7" value="1" id="Q7_1"> <label for="Q7_1">Trop élevé</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="2" id="Q7_2"> <label for="Q7_2">Acceptable</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="3" id="Q7_3"> <label for="Q7_3">Pas assez élevé</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="99" id="Q7_99"> <label for="Q7_99">Ne sait pas</label></div>
+                {% else %}
+                    <div class="form-check"><input type="radio" name="Q7" value="1" id="Q7_1"> <label for="Q7_1">Too high</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="2" id="Q7_2"> <label for="Q7_2">Acceptable</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="3" id="Q7_3"> <label for="Q7_3">Not high enough</label></div>
+                    <div class="form-check"><input type="radio" name="Q7" value="99" id="Q7_99"> <label for="Q7_99">Don't know</label></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+        <div class="scale-input">
+            <span class="scale-label">{% if lang == "fr" %}Q8. Sur une échelle de 0 à 10, pensez-vous que les bénéfices du tourisme sont répartis de façon équitable entre les résidents ?{% else %}Q8. On a scale of 0 to 10, do you think the benefits of tourism are distributed fairly among residents?{% endif %}</span>
+            <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout équitable &middot; 10 = Tout à fait équitable{% else %}0 = Not at all fair &middot; 10 = Completely fair{% endif %}</div>
+            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" name="Q8" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" name="Q8" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" name="Q8" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" name="Q8" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" name="Q8" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" name="Q8" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" name="Q8" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" name="Q8" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" name="Q8" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" name="Q8" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" name="Q8" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" name="Q8" value="99"></label></div>
+        </div>
+    </div>
+
+    <div class="submit-row">
+        {% if lang == "fr" %}<button type="submit" class="otree-btn-next btn btn-primary">Suivant</button>{% else %}<button type="submit" class="otree-btn-next btn btn-primary">Next</button>{% endif %}
+    </div>
+</div>
+{{ endblock }}

@@ -1,0 +1,23 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container">
+    <div class="thank-you">
+        {% if lang == "fr" %}
+            <h2>Merci</h2>
+            <p>Merci de votre intérêt pour cette enquête. Malheureusement, vous ne remplissez pas les critères de participation.</p>
+            <p>Nous vous remercions de votre temps.</p>
+        {% else %}
+            <h2>Thank You</h2>
+            <p>Thank you for your interest in this survey. Unfortunately, you do not meet the participation criteria.</p>
+            <p>We appreciate your time.</p>
+        {% endif %}
+    </div>
+</div>
+{{ endblock }}
