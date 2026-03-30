@@ -6,4 +6,158 @@
 {% endblock %}
 
 {% block global_scripts  %}
+<script>
+(function() {
+    var pageKey = "survey_" + window.location.pathname;
+
+    function getForm() {
+        return document.forms[0] || document.querySelector("form") || document.getElementById("form");
+    }
+
+    function saveForm() {
+        var form = getForm();
+        if (!form) return;
+        var data = { r: {}, s: {}, t: {} };
+        document.querySelectorAll('input[type="radio"]:checked').forEach(function(r) {
+            data.r[r.name] = r.value;
+        });
+        document.querySelectorAll("select").forEach(function(s) {
+            if (s.name && s.value) data.s[s.name] = s.value;
+        });
+        document.querySelectorAll('input[type="text"], input[type="number"], textarea').forEach(function(inp) {
+            if (inp.name && inp.value) data.t[inp.name] = inp.value;
+        });
+        try { localStorage.setItem(pageKey, JSON.stringify(data)); } catch(e) {}
+    }
+
+    function restoreForm() {
+        try {
+            var raw = localStorage.getItem(pageKey);
+            if (!raw) return;
+            var saved = JSON.parse(raw);
+
+            // Restore radios
+            Object.keys(saved.r || {}).forEach(function(name) {
+                var el = document.querySelector('input[type="radio"][name="' + name + '"][value="' + saved.r[name] + '"]');
+                if (el) el.checked = true;
+            });
+
+            // Restore selects — province first for cascading
+            var sKeys = Object.keys(saved.s || {}).sort(function(a, b) {
+                if (a === "Q3_province") return -1;
+                if (b === "Q3_province") return 1;
+                return 0;
+            });
+            sKeys.forEach(function(name) {
+                var sel = document.querySelector('select[name="' + name + '"]');
+                if (sel) {
+                    sel.value = saved.s[name];
+                    sel.dispatchEvent(new Event("change", { bubbles: true }));
+                }
+            });
+            // Re-set municipality after change event populated options
+            if (saved.s["Q3_municipality"]) {
+                setTimeout(function() {
+                    var m = document.querySelector('select[name="Q3_municipality"]');
+                    if (m) m.value = saved.s["Q3_municipality"];
+                }, 50);
+            }
+
+            // Restore text inputs
+            Object.keys(saved.t || {}).forEach(function(name) {
+                var inp = document.querySelector('[name="' + name + '"]');
+                if (inp && (inp.type === "text" || inp.type === "number" || inp.tagName === "TEXTAREA")) {
+                    inp.value = saved.t[name];
+                }
+            });
+        } catch(e) {}
+    }
+
+    // Save on every interaction
+    document.addEventListener("change", saveForm, true);
+    document.addEventListener("input", saveForm, true);
+    // Also save right before the page unloads (catches ALL navigations)
+    window.addEventListener("beforeunload", saveForm);
+
+    // Restore: try immediately, then again after a delay (after oTree JS init)
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function() {
+            restoreForm();
+            setTimeout(restoreForm, 200);
+        });
+    } else {
+        restoreForm();
+        setTimeout(restoreForm, 200);
+    }
+
+    // Also restore after full page load (images, scripts, etc.)
+    window.addEventListener("load", function() {
+        setTimeout(restoreForm, 300);
+    });
+
+    // Clean up keys from OTHER pages (means we successfully navigated away)
+    try {
+        Object.keys(localStorage).forEach(function(key) {
+            if (key.startsWith("survey_") && key !== pageKey) {
+                localStorage.removeItem(key);
+            }
+        });
+    } catch(e) {}
+
+    // --- Client-side validation: red border on unanswered ---
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = getForm();
+        if (!form) return;
+
+        form.addEventListener("submit", function(e) {
+            var hasUnanswered = false;
+
+            document.querySelectorAll(".question-card").forEach(function(card) {
+                card.classList.remove("unanswered");
+
+                var radios = card.querySelectorAll('input[type="radio"]');
+                var selects = card.querySelectorAll("select");
+                var textInputs = card.querySelectorAll('input[type="text"], input[type="number"], textarea');
+                var answered = true;
+
+                if (radios.length > 0) {
+                    var groups = {};
+                    radios.forEach(function(r) { groups[r.name] = true; });
+                    for (var name in groups) {
+                        if (!card.querySelector('input[name="' + name + '"]:checked')) {
+                            answered = false;
+                            break;
+                        }
+                    }
+                }
+
+                selects.forEach(function(sel) {
+                    if (!sel.disabled && !sel.value) answered = false;
+                });
+
+                textInputs.forEach(function(inp) {
+                    if (!inp.value.trim()) answered = false;
+                });
+
+                if ((radios.length > 0 || selects.length > 0 || textInputs.length > 0) && !answered) {
+                    card.classList.add("unanswered");
+                    hasUnanswered = true;
+                }
+            });
+
+            if (hasUnanswered) {
+                e.preventDefault();
+                var first = document.querySelector(".question-card.unanswered");
+                if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        });
+
+        // Remove red border on interaction
+        document.querySelectorAll(".question-card").forEach(function(card) {
+            card.addEventListener("change", function() { card.classList.remove("unanswered"); });
+            card.addEventListener("input", function() { card.classList.remove("unanswered"); });
+        });
+    });
+})();
+</script>
 {% endblock %}

@@ -1,0 +1,27 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container">
+    <div class="thank-you">
+        {% if lang == "fr" %}
+            <h2>Merci !</h2>
+            <p>Merci beaucoup d'avoir pris le temps de répondre à cette enquête.</p>
+            <p>Vos réponses sont précieuses pour notre recherche sur les perceptions du tourisme et la qualité de vie des résidents dans Nouvelle Calédonie.</p>
+            <p>Nous vous serions très reconnaissants de bien vouloir partager le lien vers ce sondage avec votre famille, vos amis et vos connaissances.</p>
+            <p><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
+        {% else %}
+            <h2>Thank You!</h2>
+            <p>Thank you very much for taking the time to complete this survey.</p>
+            <p>Your responses are valuable to our research on tourism perceptions and quality of life of residents in New Caledonia.</p>
+            <p>We would be very grateful if you would share the link to this survey with your family, friends and aquaintances.</p>
+            <p><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
+        {% endif %}
+    </div>
+</div>
+{{ endblock }}

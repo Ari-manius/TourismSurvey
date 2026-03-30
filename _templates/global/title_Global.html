@@ -1,14 +1,13 @@
 <header class="page-header">
     <div class="header-container">
         <div class="logo">
-            <img src="{{ static 'images/UPF_logo.png' }}" alt="UPF" />
+            <img src="{{ static 'images/IAE_logo.png' }}" alt="IAE" />
         </div>
         <div class="title">
-            <h1>Tourism &amp; Quality of Life Survey</h1>
+            <h1>{% if lang == "fr" %}Enquête sur le Tourisme{% elif lang == "en" %}Tourism Survey{% else %}Enquête sur le Tourisme / Tourism Survey{% endif %}</h1>
         </div>
         <div class="logo">
             <img src="{{ static 'images/UNC_logo.png' }}" alt="UNC" />
         </div>
     </div>
-    <hr>
 </header>

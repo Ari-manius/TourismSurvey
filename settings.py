@@ -3,17 +3,17 @@ import warnings
 
 SESSION_CONFIGS = [
     dict(
-        name='fiji_survey',
-        display_name='Tourism Perceptions Survey - Polynesian Islands',
-        app_sequence=['fiji_survey'],
+        name='tourism_survey',
+        display_name='Tourism Perceptions Survey',
+        app_sequence=['tourism_survey'],
         num_demo_participants=3,
     ),
 ]
 
 ROOMS = [
     dict(
-        name='FijiSurvey',
-        display_name='Fiji Survey',
+        name='TourismSurvey',
+        display_name='Tourism Survey',
     )
 ]
 

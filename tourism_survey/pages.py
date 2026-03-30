@@ -6,10 +6,13 @@ class LanguageSelect(Page):
     form_model = Player
     form_fields = ['language']
 
+    def vars_for_template(self):
+        return dict(lang=self.player.field_maybe_none('language'))
+
 
 class Screening(Page):
     form_model = Player
-    form_fields = ['Q1', 'Q2', 'Q3', 'Q4']
+    form_fields = ['Q1', 'Q2', 'Q3_province', 'Q3_municipality', 'Q4']
 
     def before_next_page(self):
         # Screen out non-residents (Q1=3) and under 18 (Q2=1)
@@ -17,7 +20,7 @@ class Screening(Page):
             self.player.screened_out = True
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class ScreenedOut(Page):
@@ -25,7 +28,7 @@ class ScreenedOut(Page):
         return self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class TourismImpact(Page):
@@ -50,7 +53,7 @@ class TourismImpact(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class OverallTourism(Page):
@@ -61,7 +64,7 @@ class OverallTourism(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class QualityOfLife(Page):
@@ -72,7 +75,7 @@ class QualityOfLife(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class ServiceSatisfaction(Page):
@@ -87,7 +90,7 @@ class ServiceSatisfaction(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class LifeSatisfaction(Page):
@@ -98,7 +101,7 @@ class LifeSatisfaction(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class Empowerment(Page):
@@ -113,7 +116,7 @@ class Empowerment(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class PlaceAttachment(Page):
@@ -124,14 +127,14 @@ class PlaceAttachment(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class FutureTourism(Page):
     form_model = Player
     form_fields = [
         'Q21',
-        'Q22_local_polynesia', 'Q22_france', 'Q22_usa', 'Q22_au_nz',
+        'Q22_local_here', 'Q22_local_pacific', 'Q22_france', 'Q22_usa', 'Q22_au_nz',
         'Q22_asia', 'Q22_other_countries', 'Q22_business', 'Q22_event',
         'Q23_luxury_hotel', 'Q23_midrange_hotel', 'Q23_guesthouse',
         'Q23_homestay', 'Q23_airbnb', 'Q23_floating',
@@ -142,7 +145,7 @@ class FutureTourism(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class Demographics(Page):
@@ -153,12 +156,12 @@ class Demographics(Page):
         return not self.player.screened_out
 
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 class ThankYou(Page):
     def vars_for_template(self):
-        return dict(lang=self.player.language)
+        return dict(lang=self.player.field_maybe_none('language'))
 
 
 page_sequence = [

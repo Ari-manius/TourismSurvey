@@ -1,0 +1,70 @@
+{% block title %}
+{% include "global/title_Global.html" %}
+{% endblock %}
+
+{{ block styles }}
+<link rel="stylesheet" href="{{ static 'global/global.css' }}">
+{{ endblock }}
+
+{{ block content }}
+<div class="container wide">
+    <div class="section-header">
+        {% if lang == "fr" %}
+            <h2>Bien-vivre et tourisme</h2>
+            <p>Veuillez indiquer dans quelle mesure vous êtes d'accord ou non avec chacune des affirmations suivantes.</p>
+        {% else %}
+            <h2>Well-Being and Tourism</h2>
+            <p>Please indicate how much you agree or disagree with each of the following statements.</p>
+        {% endif %}
+    </div>
+
+    <div class="scale-ref">
+        {% if lang == "fr" %}
+            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span>
+        {% else %}
+            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span>
+        {% endif %}
+    </div>
+
+    <div class="question-card" style="padding: 0; overflow-x: auto;">
+    {{ formfield_errors 'Q10a' }}
+    {{ formfield_errors 'Q10b' }}
+    {{ formfield_errors 'Q10c' }}
+    {{ formfield_errors 'Q10d' }}
+    {{ formfield_errors 'Q10e' }}
+    {{ formfield_errors 'Q10f' }}
+    {{ formfield_errors 'Q10g' }}
+    {{ formfield_errors 'Q10h' }}
+    {{ formfield_errors 'Q10i' }}
+    <table class="survey-table" style="margin-bottom: 0;">
+        <thead>
+            <tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a amélioré la qualité de vie des résidents de cette île{% else %}Tourism has improved the quality of life of residents of this island{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10a" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a contribué à un meilleur accès aux services publics{% else %}Tourism has contributed to better access to public services{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10b" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a rendu le logement moins abordable{% else %}Tourism has made housing less affordable{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10c" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a contribué à l'augmentation du coût de la vie{% else %}Tourism has contributed to the increase in cost of living{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10d" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a créé des tensions entre les résidents et les visiteurs{% else %}Tourism has created tensions between residents and visitors{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10e" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme favorise les échanges culturels enrichissants{% else %}Tourism fosters enriching cultural exchanges{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10f" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10f" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10f" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10f" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10f" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10f" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a contribué à la dégradation de l'environnement naturel{% else %}Tourism has contributed to the degradation of the natural environment{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10g" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10g" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10g" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10g" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10g" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10g" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a entraîné une pression accrue sur les ressources en eau et en énergie{% else %}Tourism has increased pressure on water and energy resources{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10h" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10h" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10h" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10h" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10h" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10h" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Depuis que le tourisme s'est développé, je me sens moins chez moi dans ma propre communauté{% else %}Since tourism developed, I feel less at home in my own community{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q10i" value="1"></td><td class="radio-cell"><input type="radio" required name="Q10i" value="2"></td><td class="radio-cell"><input type="radio" required name="Q10i" value="3"></td><td class="radio-cell"><input type="radio" required name="Q10i" value="4"></td><td class="radio-cell"><input type="radio" required name="Q10i" value="5"></td><td class="radio-cell"><input type="radio" required name="Q10i" value="99"></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="submit-row">
+        {% if lang == "fr" %}<button type="submit" class="otree-btn-next btn btn-primary">Suivant</button>{% else %}<button type="submit" class="otree-btn-next btn btn-primary">Next</button>{% endif %}
+    </div>
+</div>
+{{ endblock }}
