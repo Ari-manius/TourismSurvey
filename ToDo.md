@@ -13,7 +13,7 @@
 	- [x] Partie 5: L'avenir du tourisme 
 	- [x] Partie 6: Parlez Nous de Vous 
 - [x] Remove Subunit titles 
-- [ ] Introduce Progression Bar for Survey at top 
+- [x] Introduce Progression Bar for Survey at top 
 - [ ] Randomize order of answer options for questions with tables 
 - [ ] make survey modular for other Islands and Universisities 
 	- what would need to be changed 
@@ -23,14 +23,14 @@
 	- Locals from here 
 	- Locals from other pacific islands  
 	- More systematic, regarding topics and places / Some overlap with Q23
-- [ ] Q25: Age as Birthyear instead of categories 
+- [x] Q25: Age as Birthyear instead of categories 
 - [ ] Q20: Maybe provide specific topics, let people rank them? Provide an other field?  
 - [ ] Q21: Revise the question, maybe give people the possibility give a number?
 - [ ] Q24: Separate Prefer not to answer and others
 - [ ] Q32: Provide other field for employment, dont ask for socio-professional category, too convoluted 
 
 ### End Page
-- [ ] asking people to further share this link
+- [x] asking people to further share this link
  
 ### Screened Out Page
 - [x] Please share the link to the survey with one of you friends or family 
@@ -42,7 +42,6 @@
 ### Screening Page
 - [x] Province Field 
 - [x] Municipality Field 
-
 
 ### General
 - [ ] Is there a budget to get a server? Alternative to server in Konstanz, about 7€ per month 

@@ -2,36 +2,37 @@ from ._builtin import Page
 from .models import Player
 
 
-class LanguageSelect(Page):
+class BasePage(Page):
+    def vars_for_template(self):
+        total = self.participant._max_page_index
+        current = self.participant._index_in_pages
+        progress = int(100 * current / total) if total else 0
+        return dict(
+            lang=self.player.field_maybe_none('language'),
+            progress=progress,
+        )
+
+
+class LanguageSelect(BasePage):
     form_model = Player
     form_fields = ['language']
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class Screening(Page):
+class Screening(BasePage):
     form_model = Player
     form_fields = ['Q1', 'Q2', 'Q3_province', 'Q3_municipality', 'Q4']
 
     def before_next_page(self):
-        # Screen out non-residents (Q1=3) and under 18 (Q2=1)
         if self.player.Q1 == 3 or self.player.Q2 == 1:
             self.player.screened_out = True
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class ScreenedOut(Page):
+class ScreenedOut(BasePage):
     def is_displayed(self):
         return self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class TourismImpact(Page):
+class TourismImpact(BasePage):
     form_model = Player
     form_fields = [
         'Q5a_importance', 'Q5a_satisfaction',
@@ -52,33 +53,24 @@ class TourismImpact(Page):
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class OverallTourism(Page):
+class OverallTourism(BasePage):
     form_model = Player
     form_fields = ['Q6', 'Q7', 'Q8']
 
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class QualityOfLife(Page):
+class QualityOfLife(BasePage):
     form_model = Player
     form_fields = ['Q10a', 'Q10b', 'Q10c', 'Q10d', 'Q10e', 'Q10f', 'Q10g', 'Q10h', 'Q10i']
 
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class ServiceSatisfaction(Page):
+class ServiceSatisfaction(BasePage):
     form_model = Player
     form_fields = [
         'Q11_education', 'Q11_health', 'Q11_water', 'Q11_electricity',
@@ -89,22 +81,16 @@ class ServiceSatisfaction(Page):
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class LifeSatisfaction(Page):
+class LifeSatisfaction(BasePage):
     form_model = Player
     form_fields = ['Q17a', 'Q17b', 'Q17c', 'Q17d', 'Q17e']
 
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class Empowerment(Page):
+class Empowerment(BasePage):
     form_model = Player
     form_fields = [
         'Q18a', 'Q18b', 'Q18c', 'Q18d', 'Q18e',
@@ -115,22 +101,16 @@ class Empowerment(Page):
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class PlaceAttachment(Page):
+class PlaceAttachment(BasePage):
     form_model = Player
     form_fields = ['Q19a', 'Q19b', 'Q19c', 'Q19d', 'Q19e', 'Q19f', 'Q20']
 
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class FutureTourism(Page):
+class FutureTourism(BasePage):
     form_model = Player
     form_fields = [
         'Q21',
@@ -144,24 +124,17 @@ class FutureTourism(Page):
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class Demographics(Page):
+class Demographics(BasePage):
     form_model = Player
     form_fields = ['Q24', 'Q25', 'Q26', 'Q27', 'Q28', 'Q29', 'Q30', 'Q31', 'Q32']
 
     def is_displayed(self):
         return not self.player.screened_out
 
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
 
-
-class ThankYou(Page):
-    def vars_for_template(self):
-        return dict(lang=self.player.field_maybe_none('language'))
+class ThankYou(BasePage):
+    pass
 
 
 page_sequence = [

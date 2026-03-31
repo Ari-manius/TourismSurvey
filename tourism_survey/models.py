@@ -190,11 +190,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         blank=True,
     )
-    Q25 = models.IntegerField(
-        choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [7, ''], [99, '']],
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
+    Q25 = models.IntegerField(min=1920, max=2008, blank=True)
     Q26 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [99, '']],
         widget=widgets.RadioSelect,
