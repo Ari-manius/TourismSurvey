@@ -9,8 +9,8 @@
 {{ block content }}
 <div class="container">
     <div class="language-select">
-        <h3>Université de Nouvelle Calédonie</h3>
-        <p class="subtitle">IAE: L'Institut d'administration des entreprises</p>
+        <h3>UNC: Université de Nouvelle Calédonie</h3>
+        <p class="subtitle">IAE: Institut d'administration des entreprises</p>
 
         <div class="section-header" style="text-align: left;">
             <p><strong>Veuillez choisir votre langue / Please choose your language:</strong></p>
@@ -23,9 +23,44 @@
             </div>
         </div>
 
+        <div id="welcome-fr" style="display:none; text-align:left; margin-top:1.5em;">
+            <h4>Bienvenue,</h4>
+            <p>Dans le cadre d'une étude menée par le Institut d'administration des entreprises (IAE) de l'Université de la Nouvelle-Calédonie (UNC), nous réalisons une enquête auprès des résidents afin de mieux comprendre :</p>
+            <ul>
+                <li>comment le développement touristique est perçu par la population,</li>
+                <li>quels sont ses impacts sur la qualité de vie des résidents,</li>
+                <li>et quelles orientations les résidents souhaiteraient voir pour l'avenir du tourisme sur leur île principale de résidence.</li>
+            </ul>
+            <p>Ce questionnaire est entièrement anonyme et confidentiel. Il ne prendra que quelques minutes à remplir. Votre avis est précieux pour éclairer les décisions futures en matière de tourisme durable et inclusif en Nouvelle-Calédonie.</p>
+            <p>Si vous avez des questions concernant cette étude, veuillez écrire à : <strong>contact-iae@unc.nc</strong></p>
+            <p><strong>Merci beaucoup pour votre participation !</strong></p>
+        </div>
+
+        <div id="welcome-en" style="display:none; text-align:left; margin-top:1.5em;">
+            <h4>Welcome,</h4>
+            <p>As part of a study conducted by the Institut d'administration des entreprises (IAE) at the University of New Caledonia (UNC), we are conducting a survey of residents to better understand:</p>
+            <ul>
+                <li>how tourism development is perceived by the population,</li>
+                <li>what its impacts are on residents' quality of life,</li>
+                <li>and what directions residents would like to see for the future of tourism on their primary island of residence.</li>
+            </ul>
+            <p>This questionnaire is completely anonymous and confidential. It will only take a few minutes to complete. Your opinion is invaluable in informing future decisions regarding sustainable and inclusive tourism in New Caledonia.</p>
+            <p>If you have any questions regarding this study, please write to: <strong>contact-iae@unc.nc</strong></p>
+            <p><strong>Thank you very much for your participation!</strong></p>
+        </div>
+
         <div class="submit-row">
             <button type="submit" class="otree-btn-next btn btn-primary">Commencer / Start</button>
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('input[name="language"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.getElementById('welcome-fr').style.display = this.value === 'fr' ? 'block' : 'none';
+            document.getElementById('welcome-en').style.display = this.value === 'en' ? 'block' : 'none';
+        });
+    });
+</script>
 {{ endblock }}

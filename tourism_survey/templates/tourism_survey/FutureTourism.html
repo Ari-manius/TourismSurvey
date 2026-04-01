@@ -4,6 +4,7 @@
 
 {{ block styles }}
 <link rel="stylesheet" href="{{ static 'global/global.css' }}">
+<script src="{{ static 'global/global.js' }}"></script>
 {{ endblock }}
 
 {{ block content }}
@@ -18,44 +19,49 @@
         {% endif %}
     </div>
 
-    <!-- Q21 -->
+    <!-- Q20 -->
     <div class="question-card">
     <div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q21. Quel nombre de touristes par habitant vous semblerait acceptable sur cette île dans les années à venir ?{% else %}Q21. What number of tourists per resident would seem acceptable to you on this island in the coming years?{% endif %}</span>
-        {{ formfield_errors 'Q21' }}
+        <span class="question-label">{% if lang == "fr" %} Quel nombre de touristes par habitant vous semblerait acceptable en Nouvelle-Calédonie dans les années à venir ?{% else %} What number of tourists per resident would seem acceptable to you in New Caledonia in the coming years?{% endif %}</span>
+        {{ formfield_errors 'Q20' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q21" value="1" id="Q21_1"> <label for="Q21_1">Moins de 4 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="2" id="Q21_2"> <label for="Q21_2">Entre 5 et 7 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="3" id="Q21_3"> <label for="Q21_3">Entre 8 et 10 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="4" id="Q21_4"> <label for="Q21_4">Entre 11 et 13 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="5" id="Q21_5"> <label for="Q21_5">Plus de 13 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="0" id="Q21_0"> <label for="Q21_0">Aucun avis</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="1" id="Q20_1"> <label for="Q20_1">Moins de 4 touristes par habitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="2" id="Q20_2"> <label for="Q20_2">Entre 5 et 7 touristes par habitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="3" id="Q20_3"> <label for="Q20_3">Entre 8 et 10 touristes par habitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="4" id="Q20_4"> <label for="Q20_4">Entre 11 et 13 touristes par habitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="5" id="Q20_5"> <label for="Q20_5">Plus de 13 touristes par habitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="0" id="Q20_0"> <label for="Q20_0">Aucun avis</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q21" value="1" id="Q21_1"> <label for="Q21_1">Fewer than 4 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="2" id="Q21_2"> <label for="Q21_2">Between 5 and 7 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="3" id="Q21_3"> <label for="Q21_3">Between 8 and 10 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="4" id="Q21_4"> <label for="Q21_4">Between 11 and 13 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="5" id="Q21_5"> <label for="Q21_5">More than 13 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q21" value="0" id="Q21_0"> <label for="Q21_0">No opinion</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="1" id="Q20_1"> <label for="Q20_1">Fewer than 4 tourists per resident</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="2" id="Q20_2"> <label for="Q20_2">Between 5 and 7 tourists per resident</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="3" id="Q20_3"> <label for="Q20_3">Between 8 and 10 tourists per resident</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="4" id="Q20_4"> <label for="Q20_4">Between 11 and 13 tourists per resident</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="5" id="Q20_5"> <label for="Q20_5">More than 13 tourists per resident</label></div>
+                <div class="form-check"><input type="radio" required name="Q20" value="0" id="Q20_0"> <label for="Q20_0">No opinion</label></div>
             {% endif %}
         </div>
     </div>
     </div>
 
-    <!-- Q22: Visitor types matrix -->
+    <!-- Q21: Visitor types matrix -->
     <div class="question-card" style="overflow-x: auto;">
     <div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q22. Selon vous, cette île devrait-elle chercher à attirer un plus grand nombre, un plus petit nombre ou à peu près le même nombre des types de visiteurs suivants ?{% else %}Q22. In your opinion, should this island seek to attract a greater number, a smaller number, or approximately the same number of the following types of visitors?{% endif %}</span>
-        {{ formfield_errors 'Q22_local_here' }}
-        {{ formfield_errors 'Q22_local_pacific' }}
-        {{ formfield_errors 'Q22_france' }}
-        {{ formfield_errors 'Q22_usa' }}
-        {{ formfield_errors 'Q22_au_nz' }}
-        {{ formfield_errors 'Q22_asia' }}
-        {{ formfield_errors 'Q22_other_countries' }}
-        {{ formfield_errors 'Q22_business' }}
-        {{ formfield_errors 'Q22_event' }}
+        <span class="question-label">{% if lang == "fr" %} Selon vous, la Nouvelle-Calédonie devrait-elle chercher à attirer un plus grand nombre, un plus petit nombre ou à peu près le même nombre des types de visiteurs suivants ?{% else %} In your opinion, should New Caledonia seek to attract a greater number, a smaller number, or approximately the same number of the following types of visitors?{% endif %}</span>
+        {{ formfield_errors 'Q21_local_here' }}
+        {{ formfield_errors 'Q21_local_wallisfutuna' }}  
+        {{ formfield_errors 'Q21_local_vanuatu' }}    
+        {{ formfield_errors 'Q21_local_fiji' }}  
+        {{ formfield_errors 'Q21_local_tahiti' }}
+        {{ formfield_errors 'Q21_local_pacific' }}
+        {{ formfield_errors 'Q21_france' }}
+        {{ formfield_errors 'Q21_eu' }}
+        {{ formfield_errors 'Q21_usa' }}
+        {{ formfield_errors 'Q21_au_nz' }}
+        {{ formfield_errors 'Q21_asia' }}
+        {{ formfield_errors 'Q21_other_countries' }}
+        {{ formfield_errors 'Q21_business' }}
+        {{ formfield_errors 'Q21_event' }}
 
         <table class="survey-table scale-fsm" style="margin-top: 10px;">
             <thead>
@@ -69,71 +75,85 @@
             </thead>
             <tbody>
                 <tr><td class="statement">{% if lang == "fr" %}Les locaux venant de la Nouvelle Calédonie{% else %}Locals from New Caledonia{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_local_here" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_local_here" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_local_here" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_local_here" value="4"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Les locaux venant d'autres îles de la Pacifique{% else %}Locals from other Pacific islands{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_local_pacific" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_local_pacific" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_local_pacific" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_local_pacific" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_here" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_here" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_here" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_here" value="4"></td></tr>
+
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes venant de Wallis et Futuna{% else %}Tourists from Wallis and Futuna{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_wallisfutuna" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_wallisfutuna" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_wallisfutuna" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_wallisfutuna" value="4"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes venant de Vanuatu{% else %}Tourists from Vanuatu{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_vanuatu" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_vanuatu" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_vanuatu" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_vanuatu" value="4"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes venant de Fiji{% else %}Tourists from Fiji{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_fiji" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_fiji" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_fiji" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_fiji" value="4"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes venant de Tahiti{% else %}Tourists from Tahiti{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_tahiti" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_tahiti" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_tahiti" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_tahiti" value="4"></td></tr>
+
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes venant d'autres îles de la Pacifique{% else %}Tourists from other Pacific islands{% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_local_pacific" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_local_pacific" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_local_pacific" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_local_pacific" value="4"></td></tr>
+
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes venant de France métropolitaine{% else %}Tourists from metropolitan France{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_france" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_france" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_france" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_france" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_france" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_france" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_france" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_france" value="4"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Touristes originaires de l'Union européenne (à l'exception de la France){% else %}Tourists from the European Union (except France){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q21_eu" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_eu" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_eu" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_eu" value="4"></td></tr>
+
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes des États-Unis{% else %}Tourists from the United States{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_usa" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_usa" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_usa" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_usa" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_usa" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_usa" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_usa" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_usa" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes australiens et néo-zélandais{% else %}Tourists from Australia and New Zealand{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_au_nz" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_au_nz" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_au_nz" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_au_nz" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_au_nz" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_au_nz" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_au_nz" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_au_nz" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes d'Asie (Chine, Hong Kong…){% else %}Tourists from Asia (China, Hong Kong, etc.){% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_asia" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_asia" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_asia" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_asia" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_asia" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes d'autres pays{% else %}Tourists from other countries{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_other_countries" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_other_countries" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_other_countries" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_other_countries" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes d'affaires{% else %}Business tourists{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_business" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_business" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_business" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_business" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_business" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes événementiels{% else %}Event tourists{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q22_event" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_event" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_event" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_event" value="4"></td></tr>
+                    <td class="radio-cell"><input type="radio" required name="Q21_event" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="4"></td></tr>
             </tbody>
         </table>
     </div>
     </div>
 
-    <!-- Q23: Tourism types matrix -->
+    <!-- Q22: Tourism types matrix -->
     <div class="question-card" style="overflow-x: auto;">
     <div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q23. Parmi les formes de développement touristique suivantes, lesquelles souhaiteriez-vous voir privilégiées sur cette île à l'avenir ?{% else %}Q23. Among the following forms of tourism development, which would you like to see prioritized on this island in the future?{% endif %}</span>
-        {{ formfield_errors 'Q23_luxury_hotel' }}
-        {{ formfield_errors 'Q23_midrange_hotel' }}
-        {{ formfield_errors 'Q23_guesthouse' }}
-        {{ formfield_errors 'Q23_homestay' }}
-        {{ formfield_errors 'Q23_airbnb' }}
-        {{ formfield_errors 'Q23_floating' }}
-        {{ formfield_errors 'Q23_cultural' }}
-        {{ formfield_errors 'Q23_nature' }}
-        {{ formfield_errors 'Q23_sports' }}
+        <span class="question-label">{% if lang == "fr" %} Parmi les formes de développement touristique suivantes, lesquelles souhaiteriez-vous voir privilégiées en Nouvelle-Calédonie à l'avenir ? (Veuillez indiquer votre niveau de préférence pour chaque type de tourisme.){% else %} Among the following forms of tourism development, which would you like to see prioritized in New Caledonia in the future? (Please indicate your level of preference for each type of tourism.){% endif %}</span>
+        {{ formfield_errors 'Q22_luxury_hotel' }}
+        {{ formfield_errors 'Q22_midrange_hotel' }}
+        {{ formfield_errors 'Q22_guesthouse' }}
+        {{ formfield_errors 'Q22_homestay' }}
+        {{ formfield_errors 'Q22_airbnb' }}
+        {{ formfield_errors 'Q22_floating' }}
+        {{ formfield_errors 'Q22_cultural' }}
+        {{ formfield_errors 'Q22_nature' }}
+        {{ formfield_errors 'Q22_sports' }}
 
         <div class="scale-ref" style="margin-top: 10px;">
             {% if lang == "fr" %}
-                <span class="sc1">1 = Pas du tout souhaité</span> &middot; <span class="sc2">2 = Peu souhaité</span> &middot; <span class="sc3">3 = Neutre/sans opinion</span> &middot; <span class="sc4">4 = Plutôt souhaité</span> &middot; <span class="sc5">5 = Fortement souhaité</span>
+                <span class="sc1">1 = Pas du tout souhaité</span> &middot; <span class="sc2">2 = Peu souhaité</span> &middot; <span class="sc3">3 = Neutre/sans opinion</span> &middot; <span class="sc4">4 = Plutôt souhaité</span> &middot; <span class="sc5">5 = Fortement souhaité</span> &middot; <span class="sc99">NSP = Ne Sait Pas</span>
             {% else %}
-                <span class="sc1">1 = Not at all desired</span> &middot; <span class="sc2">2 = Somewhat undesired</span> &middot; <span class="sc3">3 = Neutral/No opinion</span> &middot; <span class="sc4">4 = Rather desired</span> &middot; <span class="sc5">5 = Strongly desired</span>
+                <span class="sc1">1 = Not at all desired</span> &middot; <span class="sc2">2 = Somewhat undesired</span> &middot; <span class="sc3">3 = Neutral/No opinion</span> &middot; <span class="sc4">4 = Rather desired</span> &middot; <span class="sc5">5 = Strongly desired</span> &middot; <span class="sc99">N/A = No Answer</span>
             {% endif %}
         </div>
 
         <table class="survey-table">
             <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-            <tbody>
-                <tr><td class="statement">{% if lang == "fr" %}Hôtel(s) de luxe{% else %}Luxury hotel(s){% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_luxury_hotel" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Hôtel(s) de moyenne gamme{% else %}Mid-range hotel(s){% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_midrange_hotel" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Pension de famille{% else %}Family-run inn/Guesthouse{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_guesthouse" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Hébergement chez l'habitant{% else %}Homestay accommodation{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_homestay" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_homestay" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_homestay" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_homestay" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_homestay" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_homestay" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Airbnb/locations saisonnières{% else %}Airbnb/short-term rentals{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_airbnb" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Hébergement flottant{% else %}Floating accommodation{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_floating" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_floating" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_floating" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_floating" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_floating" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_floating" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Tourisme culturel{% else %}Cultural tourism{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_cultural" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_cultural" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_cultural" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_cultural" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_cultural" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_cultural" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Tourisme de nature/écotourisme{% else %}Nature tourism/ecotourism{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_nature" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_nature" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_nature" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_nature" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_nature" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_nature" value="99"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Tourisme sportif/nautique{% else %}Sports/water tourism{% endif %}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q23_sports" value="1"></td><td class="radio-cell"><input type="radio" required name="Q23_sports" value="2"></td><td class="radio-cell"><input type="radio" required name="Q23_sports" value="3"></td><td class="radio-cell"><input type="radio" required name="Q23_sports" value="4"></td><td class="radio-cell"><input type="radio" required name="Q23_sports" value="5"></td><td class="radio-cell"><input type="radio" required name="Q23_sports" value="99"></td></tr>
+            <tbody class="randomize-rows">
+                <tr><td class="statement">{% if lang == "fr" %}Hôtel(s) de luxe (5 étoiles){% else %}Luxury hotel(s) (5-Star){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_luxury_hotel" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Hôtel(s) de moyenne gamme (3-4 étoiles){% else %}Mid-range hotel(s) (3-4 Star){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_midrange_hotel" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Pension de famille{% else %}Family-run inn/Guesthouse {% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_guesthouse" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Hébergement chez l'habitant (chambres louées){% else %}Homestay accommodation (Rented rooms){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_homestay" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_homestay" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_homestay" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_homestay" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_homestay" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_homestay" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Airbnb/locations saisonnières de courte durée (appartements locaux){% else %}Airbnb/short-term seasonal rentals (Local apartments){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_airbnb" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Hébergement flottant (bateaux, bungalows sur l'eau, etc.){% else %}Floating accommodation (boats, overwater bungalows, etc.){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_floating" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_floating" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_floating" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_floating" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_floating" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_floating" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Tourisme culturel (histoire, traditions, patrimoine){% else %}Cultural tourism (history, traditions, heritage){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_cultural" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_cultural" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_cultural" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_cultural" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_cultural" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_cultural" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Tourisme de nature/écotourisme (éco-lodges, bungalows en forêt){% else %}Nature tourism/ecotourism (Eco-lodges, forest bungalows){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_nature" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_nature" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_nature" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_nature" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_nature" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_nature" value="99"></td></tr>
+                <tr><td class="statement">{% if lang == "fr" %}Tourisme sportif/nautique (hôtels en bord de mer){% else %}Sports/water tourism (Beachside hotels){% endif %}</td>
+                    <td class="radio-cell"><input type="radio" required name="Q22_sports" value="1"></td><td class="radio-cell"><input type="radio" required name="Q22_sports" value="2"></td><td class="radio-cell"><input type="radio" required name="Q22_sports" value="3"></td><td class="radio-cell"><input type="radio" required name="Q22_sports" value="4"></td><td class="radio-cell"><input type="radio" required name="Q22_sports" value="5"></td><td class="radio-cell"><input type="radio" required name="Q22_sports" value="99"></td></tr>
             </tbody>
         </table>
     </div>

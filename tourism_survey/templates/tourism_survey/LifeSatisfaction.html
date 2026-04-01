@@ -4,6 +4,7 @@
 
 {{ block styles }}
 <link rel="stylesheet" href="{{ static 'global/global.css' }}">
+<script src="{{ static 'global/global.js' }}"></script>
 {{ endblock }}
 
 {{ block content }}
@@ -20,31 +21,31 @@
 
     <div class="scale-ref">
         {% if lang == "fr" %}
-            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span>
+            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span> &middot; <span class="sc99">NSP = Ne Sait Pas</span>
         {% else %}
-            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span>
+            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span> &middot; <span class="sc99">N/A = No Answer</span>
         {% endif %}
     </div>
 
     <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q17a' }}
-    {{ formfield_errors 'Q17b' }}
-    {{ formfield_errors 'Q17c' }}
-    {{ formfield_errors 'Q17d' }}
-    {{ formfield_errors 'Q17e' }}
+    {{ formfield_errors 'Q16a' }}
+    {{ formfield_errors 'Q16b' }}
+    {{ formfield_errors 'Q16c' }}
+    {{ formfield_errors 'Q16d' }}
+    {{ formfield_errors 'Q16e' }}
     <table class="survey-table" style="margin-bottom: 0;">
         <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-        <tbody>
+        <tbody class="randomize-rows">
             <tr><td class="statement">{% if lang == "fr" %}Je suis satisfait(e) de ma vie dans son ensemble{% else %}I am satisfied with my life as a whole{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q17a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q16a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Les conditions de ma vie sont excellentes{% else %}The conditions of my life are excellent{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q17b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q16b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Ma vie est proche de l'idéal à bien des égards{% else %}My life is close to ideal in many respects{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q17c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q16c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Jusqu'à présent, j'ai obtenu les choses importantes que je souhaitais dans la vie{% else %}So far, I have obtained the important things I wanted in life{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q17d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q16d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Si je pouvais revivre ma vie, je ne changerais presque rien{% else %}If I could relive my life, I would change almost nothing{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q17e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q16e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="99"></td></tr>
         </tbody>
     </table>
     </div>

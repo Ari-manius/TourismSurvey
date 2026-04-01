@@ -96,108 +96,120 @@ class Player(BasePlayer):
     # === Page 3: Overall Tourism Assessment ===
     Q6 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q7 = models.IntegerField(
-        choices=[[1, ''], [2, ''], [3, ''], [99, '']],
+        choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
     Q8 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
 
-    # === Page 4: Quality of Life (Q10a-Q10i) ===
-    Q10a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10f = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10g = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10h = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q10i = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    # === Page 4: Quality of Life (Q9a-Q9i) ===
+    Q9a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9f = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9g = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9h = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q9i = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
 
     # === Page 5: Service Satisfaction ===
-    Q11_education = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_health = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_water = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_electricity = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_transport = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_other = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q11_other_specify = models.StringField(blank=True)
+    Q10_education = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_health = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_water = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_electricity = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_transport = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_other = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_other_specify = models.StringField(blank=True)
+    Q11 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q12 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q13 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q14 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q15 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q16 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
 
-    # === Page 6: General Life Satisfaction (Q17a-Q17e) ===
+    # === Page 6: General Life Satisfaction (Q16a-Q16e) ===
+    Q16a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q16b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q16c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q16d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q16e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+
+    # === Page 7: Empowerment (Q17a-Q17l) ===
     Q17a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q17b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q17c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q17d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q17e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17f = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17g = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17h = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17i = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17j = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17k = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17l = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q17m = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
 
-    # === Page 7: Empowerment (Q18a-Q18l) ===
+    # === Page 8: Place Attachment (Q18a-Q18f, Q19) ===
     Q18a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q18b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q18c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q18d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q18e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
     Q18f = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18g = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18h = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18i = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18j = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18k = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q18l = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-
-    # === Page 8: Place Attachment (Q19a-Q19f, Q20) ===
-    Q19a = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q19b = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q19c = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q19d = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q19e = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q19f = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q20 = models.LongStringField(blank=True)
+    Q19 = models.LongStringField(blank=True)
 
     # === Page 9: Future Tourism Directions ===
-    Q21 = models.IntegerField(
+    Q20 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [0, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
-    # Q22: visitor types matrix (8 items, scale 1-4)
-    Q22_local_here = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_local_pacific = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_france = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_usa = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_au_nz = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_asia = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_other_countries = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_business = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    Q22_event = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
-    # Q23: tourism types matrix (9 items, scale 1-5)
-    Q23_luxury_hotel = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_midrange_hotel = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_guesthouse = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_homestay = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_airbnb = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_floating = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_cultural = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_nature = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
-    Q23_sports = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    # Q21: visitor types matrix (8 items, scale 1-4)
+    Q21_local_here = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_local_wallisfutuna = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_local_vanuatu = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_local_fiji = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_local_tahiti = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_local_pacific = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)    
+    Q21_france = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_eu = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_usa = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_au_nz = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_asia = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_other_countries = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_business = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+    Q21_event = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
+
+    # Q22: tourism types matrix (9 items, scale 1-5)
+    Q22_luxury_hotel = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_midrange_hotel = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_guesthouse = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_homestay = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_airbnb = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_floating = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_cultural = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_nature = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
+    Q22_sports = models.IntegerField(choices=Constants.LIKERT5_AGREE_CHOICES, widget=widgets.RadioSelectHorizontal, blank=True)
 
     # === Page 10: Sociodemographic Information ===
-    Q24 = models.StringField(
-        choices=[['M', ''], ['F', ''], ['O', '']],
+    Q23 = models.StringField(
+        choices=[['M', ''], ['F', ''], ['O', ''], ['NA', '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
-    Q25 = models.IntegerField(min=1920, max=2008, blank=True)
+    Q24 = models.IntegerField(min=1920, max=2008, blank=True)
+    Q25 = models.IntegerField(
+        choices=[[1, ''], [2, ''], [3, ''], [99, '']],
+        widget=widgets.RadioSelect,
+        blank=True,
+    )
     Q26 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [99, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
     Q27 = models.IntegerField(
-        choices=[[1, ''], [2, ''], [3, ''], [99, '']],
+        choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [99, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
@@ -207,21 +219,16 @@ class Player(BasePlayer):
         blank=True,
     )
     Q29 = models.IntegerField(
-        choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [99, '']],
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
-    Q30 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [7, ''], [8, ''], [99, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
-    Q31 = models.IntegerField(
+    Q30 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [7, ''], [99, '']],
         widget=widgets.RadioSelect,
         blank=True,
     )
-    Q32 = models.IntegerField(
+    Q31 = models.IntegerField(
         choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [6, ''], [7, ''], [99, '']],
         widget=widgets.RadioSelect,
         blank=True,

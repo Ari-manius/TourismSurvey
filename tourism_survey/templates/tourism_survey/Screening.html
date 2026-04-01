@@ -22,18 +22,18 @@
     <div class="question-card">
         <div class="question-block">
             <span class="question-label">
-                {% if lang == "fr" %}Q1. Quel est votre statut de résident sur cette île ?{% else %}Q1. What is your resident status on this island?{% endif %}
+                {% if lang == "fr" %} Quel est votre statut de résident en Nouvelle Calédonie ?{% else %} What is your resident status in New Caledonia?{% endif %}
             </span>
             {{ formfield_errors 'Q1' }}
             <div class="choices">
                 {% if lang == "fr" %}
-                    <div class="form-check"><input type="radio" required name="Q1" value="1" id="Q1_1"> <label for="Q1_1">Je vis sur cette île toute l'année (résident permanent)</label></div>
-                    <div class="form-check"><input type="radio" required name="Q1" value="2" id="Q1_2"> <label for="Q1_2">Je vis sur cette île une partie de l'année (résidence secondaire ou résident saisonnier)</label></div>
-                    <div class="form-check"><input type="radio" required name="Q1" value="3" id="Q1_3"> <label for="Q1_3">Je n'habite pas sur cette île</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="1" id="Q1_1"> <label for="Q1_1">Je vis en Nouvelle-Calédonie toute l'année (résident permanent)</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="2" id="Q1_2"> <label for="Q1_2">Je vis en Nouvelle-Calédonie une partie de l'année (résidence secondaire ou résident saisonnier)</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="3" id="Q1_3"> <label for="Q1_3">Je n'habite pas en Nouvelle-Calédonie</label></div>
                 {% else %}
-                    <div class="form-check"><input type="radio" required name="Q1" value="1" id="Q1_1"> <label for="Q1_1">I live on this island year-round (permanent resident)</label></div>
-                    <div class="form-check"><input type="radio" required name="Q1" value="2" id="Q1_2"> <label for="Q1_2">I live on this island part of the year (second home owner or seasonal resident)</label></div>
-                    <div class="form-check"><input type="radio" required name="Q1" value="3" id="Q1_3"> <label for="Q1_3">I do not live on this island</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="1" id="Q1_1"> <label for="Q1_1">I live in New Caledonia year-round (permanent resident)</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="2" id="Q1_2"> <label for="Q1_2">I live in New Caledonia part of the year (second home owner or seasonal resident)</label></div>
+                    <div class="form-check"><input type="radio" required name="Q1" value="3" id="Q1_3"> <label for="Q1_3">I do not live in New Caledonia</label></div>
                 {% endif %}
             </div>
         </div>
@@ -43,7 +43,7 @@
     <div class="question-card">
         <div class="question-block">
             <span class="question-label">
-                {% if lang == "fr" %}Q2. Avez-vous 18 ans ou plus ?{% else %}Q2. Are you 18 years old or older?{% endif %}
+                {% if lang == "fr" %} Avez-vous 18 ans ou plus ?{% else %} Are you 18 years old or older?{% endif %}
             </span>
             {{ formfield_errors 'Q2' }}
             <div class="choices">
@@ -59,10 +59,10 @@
     </div>
 
     <!-- Q3: Province + Municipality -->
-    <div class="question-card">
+    <div class="question-card" id="q3-card">
         <div class="question-block">
             <span class="question-label">
-                {% if lang == "fr" %}Q3. Dans quelle province et commune résidez-vous actuellement ?{% else %}Q3. In which province and municipality do you currently reside?{% endif %}
+                {% if lang == "fr" %} Dans quelle province et commune résidez-vous actuellement ?{% else %} In which province and municipality do you currently reside?{% endif %}
             </span>
 
             {{ formfield_errors 'Q3_province' }}
@@ -92,19 +92,19 @@
 
     <script>
         const municipalityData = {
-            "Province Sud": [
-                "Nouméa", "Mont-Dore", "Dumbéa", "Païta", "Boulouparis",
-                "La Foa", "Moindou", "Sarraméa", "Farino", "Bourail",
-                "Thio", "Yaté", "Île des Pins", "Poya"
-            ],
-            "Province Nord": [
-                "Poya", "Pouembout", "Koné", "Voh", "Kaala-Gomen",
-                "Koumac", "Poum", "Bélep", "Ouégoa", "Pouébo",
-                "Hienghène", "Touho", "Poindimié", "Ponérihouen",
-                "Houaïlou", "Canala", "Kouaoua"
-            ],
             "Province des Îles Loyauté": [
                 "Lifou", "Maré", "Ouvéa"
+            ],
+            "Province Nord": [
+                "Bélep", "Canala", "Hienghène", "Houaïlou", "Kaala-Gomen",
+                "Koné", "Kouaoua", "Koumac", "Ouégoa", "Poindimié",
+                "Ponérihouen", "Pouébo", "Pouembout", "Poum", "Poya",
+                "Touho", "Voh"
+            ],
+            "Province Sud": [
+                "Boulouparis", "Bourail", "Dumbéa", "Farino", "Île des Pins",
+                "La Foa", "Moindou", "Mont-Dore", "Nouméa", "Païta",
+                "Poya", "Sarraméa", "Thio", "Yaté"
             ]
         };
 
@@ -143,13 +143,27 @@
 
             municipalitySelect.disabled = false;
         });
+
+        function updateQ3Q4Visibility() {
+            const q1Val = document.querySelector('input[name="Q1"]:checked');
+            const hide = q1Val && q1Val.value === "3";
+            const q3Card = document.getElementById("q3-card");
+            const q4Card = document.getElementById("q4-card");
+            q3Card.style.display = hide ? "none" : "";
+            q4Card.style.display = hide ? "none" : "";
+            q3Card.querySelectorAll("[required]").forEach(el => hide ? el.removeAttribute("required") : el.setAttribute("required", ""));
+            q4Card.querySelectorAll("[required]").forEach(el => hide ? el.removeAttribute("required") : el.setAttribute("required", ""));
+        }
+
+        document.querySelectorAll('input[name="Q1"]').forEach(el => el.addEventListener("change", updateQ3Q4Visibility));
+        updateQ3Q4Visibility();
     </script>
 
     <!-- Q4 -->
-    <div class="question-card">
+    <div class="question-card" id="q4-card">
         <div class="question-block">
             <span class="question-label">
-                {% if lang == "fr" %}Q4. Depuis combien de temps vivez-vous dans votre commune actuelle ?{% else %}Q4. How long have you been living in your current municipality?{% endif %}
+                {% if lang == "fr" %} Depuis combien de temps vivez-vous dans votre commune actuelle ?{% else %} How long have you been living in your current municipality?{% endif %}
             </span>
             {{ formfield_errors 'Q4' }}
             <div class="choices">

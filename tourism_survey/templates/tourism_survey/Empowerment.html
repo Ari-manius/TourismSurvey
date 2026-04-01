@@ -4,49 +4,50 @@
 
 {{ block styles }}
 <link rel="stylesheet" href="{{ static 'global/global.css' }}">
+<script src="{{ static 'global/global.js' }}"></script>
 {{ endblock }}
 
 {{ block content }}
 <div class="container wide">
     <div class="section-header">
         {% if lang == "fr" %}
-            <h2>Moi et tourisme</h2>
-            <p>Les affirmations suivantes portent sur votre sentiment d'émancipation lié au tourisme sur cette île.</p>
+            <h2>Moi et le tourisme</h2>
+            <p>Les affirmations suivantes portent sur votre sentiment d'émancipation lié au tourisme en Nouvelle-Calédonie.</p>
         {% else %}
             <h2>Me and Tourism</h2>
-            <p>The following statements concern your sense of empowerment related to tourism on this island.</p>
+            <p>The following statements concern your sense of empowerment related to tourism in New Caledonia.</p>
         {% endif %}
     </div>
 
     <div class="scale-ref">
         {% if lang == "fr" %}
-            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span>
+            <span class="sc1">1 = Pas du tout d'accord</span> &middot; <span class="sc2">2 = Plutôt pas d'accord</span> &middot; <span class="sc3">3 = Ni d'accord Ni pas d'accord</span> &middot; <span class="sc4">4 = Plutôt d'accord</span> &middot; <span class="sc5">5 = Tout à fait d'accord</span> &middot; <span class="sc99">NSP = Ne Sait Pas</span>
         {% else %}
-            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span>
+            <span class="sc1">1 = Strongly disagree</span> &middot; <span class="sc2">2 = Somewhat disagree</span> &middot; <span class="sc3">3 = Neither agree nor disagree</span> &middot; <span class="sc4">4 = Somewhat agree</span> &middot; <span class="sc5">5 = Strongly agree</span> &middot; <span class="sc99">N/A = No Answer</span>
         {% endif %}
     </div>
 
     <!-- Cultural Pride and Identity -->
     <!-- <h4 class="subsection-header">{% if lang == "fr" %}Fierté culturelle et identité{% else %}Cultural Pride and Identity{% endif %}</h4> -->
     <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q18a' }}
-    {{ formfield_errors 'Q18b' }}
-    {{ formfield_errors 'Q18c' }}
-    {{ formfield_errors 'Q18d' }}
-    {{ formfield_errors 'Q18e' }}
+    {{ formfield_errors 'Q17a' }}
+    {{ formfield_errors 'Q17b' }}
+    {{ formfield_errors 'Q17c' }}
+    {{ formfield_errors 'Q17d' }}
+    {{ formfield_errors 'Q17e' }}
     <table class="survey-table" style="margin-bottom: 0;">
         <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-        <tbody>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me rend fier(ère) d'être résident(e) de cette île{% else %}Tourism makes me proud to be a resident of this island{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18a" value="99"></td></tr>
+        <tbody class="randomize-rows">
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me rend fier(ère) d'être résident(e) de la Nouvelle-Calédonie{% else %}Tourism makes me proud to be a resident of New Caledonia{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q17a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17a" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Le tourisme me fait me sentir spécial(e), car des personnes viennent ici pour découvrir les caractéristiques uniques de l'île{% else %}Tourism makes me feel special because people come here to discover the unique characteristics of the island{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18b" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me donne envie de faire connaître aux autres ce que cette île a à offrir{% else %}Tourism gives me the desire to make others aware of what this island has to offer{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18c" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17b" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me donne envie de faire connaître aux autres ce que la Nouvelle-Calédonie a à offrir{% else %}Tourism gives me the desire to make others aware of what New Caledonia has to offer{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q17c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17c" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Le tourisme me rappelle que j'ai une culture unique à partager avec les visiteurs{% else %}Tourism reminds me that I have a unique culture to share with visitors{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18d" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me motive à contribuer à la préservation de ce qui rend cette île spéciale{% else %}Tourism motivates me to contribute to preserving what makes this island special{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18e" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17d" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me motive à contribuer à la préservation de ce qui rend la Nouvelle-Calédonie spéciale{% else %}Tourism motivates me to contribute to preserving what makes New Caledonia special{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q17e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17e" value="99"></td></tr>
         </tbody>
     </table>
     </div>
@@ -54,18 +55,18 @@
     <!-- Community Connection -->
     <!-- <h4 class="subsection-header">{% if lang == "fr" %}Connexion communautaire{% else %}Community Connection{% endif %}</h4> -->
     <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q18f' }}
-    {{ formfield_errors 'Q18g' }}
-    {{ formfield_errors 'Q18h' }}
+    {{ formfield_errors 'Q17f' }}
+    {{ formfield_errors 'Q17g' }}
+    {{ formfield_errors 'Q17h' }}
     <table class="survey-table" style="margin-bottom: 0;">
         <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-        <tbody>
+        <tbody class="randomize-rows">
             <tr><td class="statement">{% if lang == "fr" %}Le tourisme me fait me sentir plus connecté(e) à ma communauté{% else %}Tourism makes me feel more connected to my community{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18f" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18f" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18f" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18f" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18f" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18f" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17f" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17f" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17f" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17f" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17f" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17f" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Le tourisme favorise en moi un sentiment d'esprit communautaire{% else %}Tourism fosters in me a sense of community spirit{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18g" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18g" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18g" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18g" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18g" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18g" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17g" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17g" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17g" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17g" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17g" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17g" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Le tourisme offre des moyens de m'impliquer dans ma communauté{% else %}Tourism offers me ways to get involved in my community{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18h" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18h" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18h" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18h" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18h" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18h" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17h" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17h" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17h" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17h" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17h" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17h" value="99"></td></tr>
         </tbody>
     </table>
     </div>
@@ -73,21 +74,24 @@
     <!-- Voice and Participation -->
     <!-- <h4 class="subsection-header">{% if lang == "fr" %}Voix et participation{% else %}Voice and Participation{% endif %}</h4> -->
     <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q18i' }}
-    {{ formfield_errors 'Q18j' }}
-    {{ formfield_errors 'Q18k' }}
-    {{ formfield_errors 'Q18l' }}
+    {{ formfield_errors 'Q17i' }}
+    {{ formfield_errors 'Q17j' }}
+    {{ formfield_errors 'Q17k' }}
+    {{ formfield_errors 'Q17l' }}
+    {{ formfield_errors 'Q17m' }}
     <table class="survey-table" style="margin-bottom: 0;">
         <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-        <tbody>
+        <tbody class="randomize-rows">
             <tr><td class="statement">{% if lang == "fr" %}J'ai la possibilité de faire entendre ma voix dans les décisions liées au développement touristique{% else %}I have the opportunity to have my voice heard in decisions related to tourism development{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18i" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18i" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18i" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18i" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18i" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18i" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17i" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17i" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17i" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17i" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17i" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17i" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}J'ai accès aux processus décisionnels en matière de tourisme{% else %}I have access to decision-making processes regarding tourism{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18j" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18j" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18j" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18j" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18j" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18j" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17j" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17j" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17j" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17j" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17j" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17j" value="99"></td></tr>
             <tr><td class="statement">{% if lang == "fr" %}Mon opinion a une influence sur la manière dont le tourisme se développe{% else %}My opinion has an influence on how tourism develops{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18k" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18k" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18k" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18k" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18k" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18k" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Je dispose de moyens pour exprimer mes préoccupations concernant le développement touristique{% else %}I have means to express my concerns about tourism development{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q18l" value="1"></td><td class="radio-cell"><input type="radio" required name="Q18l" value="2"></td><td class="radio-cell"><input type="radio" required name="Q18l" value="3"></td><td class="radio-cell"><input type="radio" required name="Q18l" value="4"></td><td class="radio-cell"><input type="radio" required name="Q18l" value="5"></td><td class="radio-cell"><input type="radio" required name="Q18l" value="99"></td></tr>
+                <td class="radio-cell"><input type="radio" required name="Q17k" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17k" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17k" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17k" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17k" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17k" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me rappelle que j'ai une culture unique à partager avec les visiteurs{% else %}Tourism reminds me that I have a unique culture to share with visitors{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q17l" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17l" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17l" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17l" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17l" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17l" value="99"></td></tr>
+            <tr><td class="statement">{% if lang == "fr" %}Je dispose de moyens pour exprimer mes préoccupations concernant le développement touristique en Nouvelle-Calédonie{% else %}I have means to express my concerns about tourism development in New Caledonia{% endif %}</td>
+                <td class="radio-cell"><input type="radio" required name="Q17m" value="1"></td><td class="radio-cell"><input type="radio" required name="Q17m" value="2"></td><td class="radio-cell"><input type="radio" required name="Q17m" value="3"></td><td class="radio-cell"><input type="radio" required name="Q17m" value="4"></td><td class="radio-cell"><input type="radio" required name="Q17m" value="5"></td><td class="radio-cell"><input type="radio" required name="Q17m" value="99"></td></tr>
         </tbody>
     </table>
     </div>

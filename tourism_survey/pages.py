@@ -64,7 +64,7 @@ class OverallTourism(BasePage):
 
 class QualityOfLife(BasePage):
     form_model = Player
-    form_fields = ['Q10a', 'Q10b', 'Q10c', 'Q10d', 'Q10e', 'Q10f', 'Q10g', 'Q10h', 'Q10i']
+    form_fields = ['Q9a', 'Q9b', 'Q9c', 'Q9d', 'Q9e', 'Q9f', 'Q9g', 'Q9h', 'Q9i']
 
     def is_displayed(self):
         return not self.player.screened_out
@@ -73,9 +73,9 @@ class QualityOfLife(BasePage):
 class ServiceSatisfaction(BasePage):
     form_model = Player
     form_fields = [
-        'Q11_education', 'Q11_health', 'Q11_water', 'Q11_electricity',
-        'Q11_transport', 'Q11_other', 'Q11_other_specify',
-        'Q12', 'Q13', 'Q14', 'Q15', 'Q16',
+        'Q10_education', 'Q10_health', 'Q10_water', 'Q10_electricity',
+        'Q10_transport', 'Q10_other', 'Q10_other_specify',
+        'Q11', 'Q12', 'Q13', 'Q14', 'Q15',
     ]
 
     def is_displayed(self):
@@ -84,7 +84,7 @@ class ServiceSatisfaction(BasePage):
 
 class LifeSatisfaction(BasePage):
     form_model = Player
-    form_fields = ['Q17a', 'Q17b', 'Q17c', 'Q17d', 'Q17e']
+    form_fields = ['Q16a', 'Q16b', 'Q16c', 'Q16d', 'Q16e']
 
     def is_displayed(self):
         return not self.player.screened_out
@@ -93,9 +93,9 @@ class LifeSatisfaction(BasePage):
 class Empowerment(BasePage):
     form_model = Player
     form_fields = [
-        'Q18a', 'Q18b', 'Q18c', 'Q18d', 'Q18e',
-        'Q18f', 'Q18g', 'Q18h',
-        'Q18i', 'Q18j', 'Q18k', 'Q18l',
+        'Q17a', 'Q17b', 'Q17c', 'Q17d', 'Q17e',
+        'Q17f', 'Q17g', 'Q17h',
+        'Q17i', 'Q17j', 'Q17k', 'Q17l', 'Q17m',
     ]
 
     def is_displayed(self):
@@ -104,7 +104,7 @@ class Empowerment(BasePage):
 
 class PlaceAttachment(BasePage):
     form_model = Player
-    form_fields = ['Q19a', 'Q19b', 'Q19c', 'Q19d', 'Q19e', 'Q19f', 'Q20']
+    form_fields = ['Q18a', 'Q18b', 'Q18c', 'Q18d', 'Q18e', 'Q18f', 'Q19']
 
     def is_displayed(self):
         return not self.player.screened_out
@@ -113,12 +113,12 @@ class PlaceAttachment(BasePage):
 class FutureTourism(BasePage):
     form_model = Player
     form_fields = [
-        'Q21',
-        'Q22_local_here', 'Q22_local_pacific', 'Q22_france', 'Q22_usa', 'Q22_au_nz',
-        'Q22_asia', 'Q22_other_countries', 'Q22_business', 'Q22_event',
-        'Q23_luxury_hotel', 'Q23_midrange_hotel', 'Q23_guesthouse',
-        'Q23_homestay', 'Q23_airbnb', 'Q23_floating',
-        'Q23_cultural', 'Q23_nature', 'Q23_sports',
+        'Q20',
+        'Q21_local_here','Q21_local_wallisfutuna', 'Q21_local_vanuatu' ,'Q21_local_fiji', 'Q21_local_tahiti', 'Q21_local_pacific', 'Q21_france', 'Q21_eu', 'Q21_usa', 'Q21_au_nz',
+        'Q21_asia', 'Q21_other_countries', 'Q21_business', 'Q21_event',
+        'Q22_luxury_hotel', 'Q22_midrange_hotel', 'Q22_guesthouse',
+        'Q22_homestay', 'Q22_airbnb', 'Q22_floating',
+        'Q22_cultural', 'Q22_nature', 'Q22_sports',
     ]
 
     def is_displayed(self):
@@ -127,7 +127,7 @@ class FutureTourism(BasePage):
 
 class Demographics(BasePage):
     form_model = Player
-    form_fields = ['Q24', 'Q25', 'Q26', 'Q27', 'Q28', 'Q29', 'Q30', 'Q31', 'Q32']
+    form_fields = ['Q23', 'Q24', 'Q25', 'Q26', 'Q27', 'Q28', 'Q29', 'Q30', 'Q31']
 
     def is_displayed(self):
         return not self.player.screened_out
@@ -141,8 +141,8 @@ page_sequence = [
     LanguageSelect,
     Screening,
     ScreenedOut,
-    TourismImpact,
     OverallTourism,
+    TourismImpact,
     QualityOfLife,
     ServiceSatisfaction,
     LifeSatisfaction,

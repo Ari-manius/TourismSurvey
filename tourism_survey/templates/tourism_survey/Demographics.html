@@ -18,33 +18,54 @@
         {% endif %}
     </div>
 
-    <!-- Q24: Gender -->
+    <!-- Q23: Gender -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q24. Vous êtes :{% else %}Q24. You are:{% endif %}</span>
-        {{ formfield_errors 'Q24' }}
+        <span class="question-label">{% if lang == "fr" %} Vous êtes :{% else %} You are:{% endif %}</span>
+        {{ formfield_errors 'Q23' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q24" value="M" id="Q24_M"> <label for="Q24_M">Homme</label></div>
-                <div class="form-check"><input type="radio" required name="Q24" value="F" id="Q24_F"> <label for="Q24_F">Femme</label></div>
-                <div class="form-check"><input type="radio" required name="Q24" value="O" id="Q24_O"> <label for="Q24_O">Autre / Préfère ne pas répondre</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="M" id="Q23_M"> <label for="Q23_M">Homme</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="F" id="Q23_F"> <label for="Q23_F">Femme</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="O" id="Q23_O"> <label for="Q23_O">Autre</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="NA" id="Q23_NA"> <label for="Q23_NA">Préfère ne pas répondre</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q24" value="M" id="Q24_M"> <label for="Q24_M">Male</label></div>
-                <div class="form-check"><input type="radio" required name="Q24" value="F" id="Q24_F"> <label for="Q24_F">Female</label></div>
-                <div class="form-check"><input type="radio" required name="Q24" value="O" id="Q24_O"> <label for="Q24_O">Other / Prefer not to answer</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="M" id="Q23_M"> <label for="Q23_M">Male</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="F" id="Q23_F"> <label for="Q23_F">Female</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="O" id="Q23_O"> <label for="Q23_O">Other</label></div>
+                <div class="form-check"><input type="radio" required name="Q23" value="NA" id="Q23_NA"> <label for="Q23_NA">Prefer not to answer</label></div>
             {% endif %}
         </div>
     </div></div>
 
-    <!-- Q25: Birth year -->
+    <!-- Q24: Birth year -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q25. Quelle est votre année de naissance ?{% else %}Q25. What is your birth year?{% endif %}</span>
-        {{ formfield_errors 'Q25' }}
-        <input type="number" required name="Q25" min="1920" max="2008" placeholder="{% if lang == "fr" %}ex: 1990{% else %}e.g. 1990{% endif %}" style="width: 100%; padding: 8px; font-size: 1rem;">
+        <span class="question-label">{% if lang == "fr" %} Quelle est votre année de naissance ?{% else %} What is your birth year?{% endif %}</span>
+        {{ formfield_errors 'Q24' }}
+        <input type="number" required name="Q24" min="1920" max="2008" placeholder="{% if lang == "fr" %}ex: 1990{% else %}e.g. 1990{% endif %}" style="width: 100%; padding: 8px; font-size: 1rem;">
     </div></div>
 
-    <!-- Q26: Tourism work -->
+    <!-- Q25: Tourism work -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q26. Travaillez-vous ou avez-vous déjà travaillé dans le secteur touristique ?{% else %}Q26. Do you work or have you ever worked in the tourism sector?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Travaillez-vous ou avez-vous déjà travaillé dans le secteur touristique ?{% else %} Do you work or have you ever worked in the tourism sector?{% endif %}</span>
+        {{ formfield_errors 'Q25' }}
+        <div class="choices">
+            {% if lang == "fr" %}
+                <div class="form-check"><input type="radio" required name="Q25" value="1" id="Q25_1"> <label for="Q25_1">OUI, actuellement</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="2" id="Q25_2"> <label for="Q25_2">OUI, mais plus maintenant</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="3" id="Q25_3"> <label for="Q25_3">NON, jamais</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="99" id="Q25_99"> <label for="Q25_99">Préfère ne pas répondre</label></div>
+            {% else %}
+                <div class="form-check"><input type="radio" required name="Q25" value="1" id="Q25_1"> <label for="Q25_1">YES, currently</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="2" id="Q25_2"> <label for="Q25_2">YES, but not anymore</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="3" id="Q25_3"> <label for="Q25_3">NO, never</label></div>
+                <div class="form-check"><input type="radio" required name="Q25" value="99" id="Q25_99"> <label for="Q25_99">Prefer not to answer</label></div>
+            {% endif %}
+        </div>
+    </div></div>
+
+    <!-- Q26: Family tourism work -->
+    <div class="question-card"><div class="question-block">
+        <span class="question-label">{% if lang == "fr" %} Est-ce qu'un membre de votre famille travaille ou a déjà travaillé dans le secteur du tourisme ?{% else %} Does a member of your family work or have they ever worked in the tourism sector?{% endif %}</span>
         {{ formfield_errors 'Q26' }}
         <div class="choices">
             {% if lang == "fr" %}
@@ -61,28 +82,34 @@
         </div>
     </div></div>
 
-    <!-- Q27: Family tourism work -->
+    <!-- Q27: Years in Polynesia -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q27. Est-ce qu'un membre de votre famille travaille ou a déjà travaillé dans le secteur du tourisme ?{% else %}Q27. Does a member of your family work or have they ever worked in the tourism sector?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Depuis combien d'années vivez-vous en Nouvelle-Calédonie ?{% else %} How many years have you lived in New Caledonia?{% endif %}</span>
         {{ formfield_errors 'Q27' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q27" value="1" id="Q27_1"> <label for="Q27_1">OUI, actuellement</label></div>
-                <div class="form-check"><input type="radio" required name="Q27" value="2" id="Q27_2"> <label for="Q27_2">OUI, mais plus maintenant</label></div>
-                <div class="form-check"><input type="radio" required name="Q27" value="3" id="Q27_3"> <label for="Q27_3">NON, jamais</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="1" id="Q27_1"> <label for="Q27_1">Moins d'un an</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="2" id="Q27_2"> <label for="Q27_2">1 à 3 ans</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="3" id="Q27_3"> <label for="Q27_3">4 à 6 ans</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="4" id="Q27_4"> <label for="Q27_4">7 à 9 ans</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="5" id="Q27_5"> <label for="Q27_5">Plus de 10 ans</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="6" id="Q27_6"> <label for="Q27_6">Je suis né(e) en Polynésie</label></div>
                 <div class="form-check"><input type="radio" required name="Q27" value="99" id="Q27_99"> <label for="Q27_99">Préfère ne pas répondre</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q27" value="1" id="Q27_1"> <label for="Q27_1">YES, currently</label></div>
-                <div class="form-check"><input type="radio" required name="Q27" value="2" id="Q27_2"> <label for="Q27_2">YES, but not anymore</label></div>
-                <div class="form-check"><input type="radio" required name="Q27" value="3" id="Q27_3"> <label for="Q27_3">NO, never</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="1" id="Q27_1"> <label for="Q27_1">Less than one year</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="2" id="Q27_2"> <label for="Q27_2">1 to 3 years</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="3" id="Q27_3"> <label for="Q27_3">4 to 6 years</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="4" id="Q27_4"> <label for="Q27_4">7 to 9 years</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="5" id="Q27_5"> <label for="Q27_5">More than 10 years</label></div>
+                <div class="form-check"><input type="radio" required name="Q27" value="6" id="Q27_6"> <label for="Q27_6">I was born in Polynesia</label></div>
                 <div class="form-check"><input type="radio" required name="Q27" value="99" id="Q27_99"> <label for="Q27_99">Prefer not to answer</label></div>
             {% endif %}
         </div>
     </div></div>
 
-    <!-- Q28: Years in Polynesia -->
-    <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q28. Depuis combien d'années vivez-vous en Polynésie ?{% else %}Q28. How many years have you lived in Polynesia?{% endif %}</span>
+    <!-- Q28: Years on island -->
+    <!-- <div class="question-card"><div class="question-block">
+        <span class="question-label">{% if lang == "fr" %} Depuis combien d'années résidez-vous en Nouvelle-Calédonie ?{% else %} How many years have you lived in New Caledonia?{% endif %}</span>
         {{ formfield_errors 'Q28' }}
         <div class="choices">
             {% if lang == "fr" %}
@@ -91,7 +118,7 @@
                 <div class="form-check"><input type="radio" required name="Q28" value="3" id="Q28_3"> <label for="Q28_3">4 à 6 ans</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="4" id="Q28_4"> <label for="Q28_4">7 à 9 ans</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="5" id="Q28_5"> <label for="Q28_5">Plus de 10 ans</label></div>
-                <div class="form-check"><input type="radio" required name="Q28" value="6" id="Q28_6"> <label for="Q28_6">Je suis né(e) en Polynésie</label></div>
+                <div class="form-check"><input type="radio" required name="Q28" value="6" id="Q28_6"> <label for="Q28_6">Depuis la naissance</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="99" id="Q28_99"> <label for="Q28_99">Préfère ne pas répondre</label></div>
             {% else %}
                 <div class="form-check"><input type="radio" required name="Q28" value="1" id="Q28_1"> <label for="Q28_1">Less than one year</label></div>
@@ -99,116 +126,91 @@
                 <div class="form-check"><input type="radio" required name="Q28" value="3" id="Q28_3"> <label for="Q28_3">4 to 6 years</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="4" id="Q28_4"> <label for="Q28_4">7 to 9 years</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="5" id="Q28_5"> <label for="Q28_5">More than 10 years</label></div>
-                <div class="form-check"><input type="radio" required name="Q28" value="6" id="Q28_6"> <label for="Q28_6">I was born in Polynesia</label></div>
+                <div class="form-check"><input type="radio" required name="Q28" value="6" id="Q28_6"> <label for="Q28_6">Since birth</label></div>
                 <div class="form-check"><input type="radio" required name="Q28" value="99" id="Q28_99"> <label for="Q28_99">Prefer not to answer</label></div>
             {% endif %}
         </div>
-    </div></div>
+    </div></div> -->
 
-    <!-- Q29: Years on island -->
+    <!-- Q29: Education -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q29. Depuis combien d'années résidez-vous sur cette île ?{% else %}Q29. How many years have you lived on this island?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Quel est votre niveau d'étude ?{% else %} What is your level of education?{% endif %}</span>
         {{ formfield_errors 'Q29' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q29" value="1" id="Q29_1"> <label for="Q29_1">Moins d'un an</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="2" id="Q29_2"> <label for="Q29_2">1 à 3 ans</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="3" id="Q29_3"> <label for="Q29_3">4 à 6 ans</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="4" id="Q29_4"> <label for="Q29_4">7 à 9 ans</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="5" id="Q29_5"> <label for="Q29_5">Plus de 10 ans</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="6" id="Q29_6"> <label for="Q29_6">Depuis la naissance</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="1" id="Q29_1"> <label for="Q29_1">Non diplômé</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="2" id="Q29_2"> <label for="Q29_2">CAP, BEP</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="3" id="Q29_3"> <label for="Q29_3">BAC</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="4" id="Q29_4"> <label for="Q29_4">DEUG, BTS, DUT (BAC+2)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="5" id="Q29_5"> <label for="Q29_5">Licence (BAC+3)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="6" id="Q29_6"> <label for="Q29_6">Maîtrise (BAC+4)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="7" id="Q29_7"> <label for="Q29_7">Master, DEA, DESS, diplôme d'ingénieur (BAC+5)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="8" id="Q29_8"> <label for="Q29_8">Doctorat, habilitation (BAC+8)</label></div>
                 <div class="form-check"><input type="radio" required name="Q29" value="99" id="Q29_99"> <label for="Q29_99">Préfère ne pas répondre</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q29" value="1" id="Q29_1"> <label for="Q29_1">Less than one year</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="2" id="Q29_2"> <label for="Q29_2">1 to 3 years</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="3" id="Q29_3"> <label for="Q29_3">4 to 6 years</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="4" id="Q29_4"> <label for="Q29_4">7 to 9 years</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="5" id="Q29_5"> <label for="Q29_5">More than 10 years</label></div>
-                <div class="form-check"><input type="radio" required name="Q29" value="6" id="Q29_6"> <label for="Q29_6">Since birth</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="1" id="Q29_1"> <label for="Q29_1">No diploma</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="2" id="Q29_2"> <label for="Q29_2">Vocational certificates (CAP, BEP)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="3" id="Q29_3"> <label for="Q29_3">Baccalaureate</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="4" id="Q29_4"> <label for="Q29_4">Associate degree equivalent</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="5" id="Q29_5"> <label for="Q29_5">Bachelor's (3 years)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="6" id="Q29_6"> <label for="Q29_6">Maîtrise (4 years)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="7" id="Q29_7"> <label for="Q29_7">Master / Engineering diploma (5 years)</label></div>
+                <div class="form-check"><input type="radio" required name="Q29" value="8" id="Q29_8"> <label for="Q29_8">Doctorate (8 years)</label></div>
                 <div class="form-check"><input type="radio" required name="Q29" value="99" id="Q29_99"> <label for="Q29_99">Prefer not to answer</label></div>
             {% endif %}
         </div>
     </div></div>
 
-    <!-- Q30: Education -->
+    <!-- Q30: Professional category -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q30. Quel est votre niveau d'étude ?{% else %}Q30. What is your level of education?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Quel est votre domaine d'activité professionnelle?{% else %} What is your field of professional activity?{% endif %}</span>
         {{ formfield_errors 'Q30' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q30" value="1" id="Q30_1"> <label for="Q30_1">Non diplômé</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="2" id="Q30_2"> <label for="Q30_2">CAP, BEP</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="3" id="Q30_3"> <label for="Q30_3">BAC</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="4" id="Q30_4"> <label for="Q30_4">DEUG, BTS, DUT (BAC+2)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="5" id="Q30_5"> <label for="Q30_5">Licence (BAC+3)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="6" id="Q30_6"> <label for="Q30_6">Maîtrise (BAC+4)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="7" id="Q30_7"> <label for="Q30_7">Master, DEA, DESS, diplôme d'ingénieur (BAC+5)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="8" id="Q30_8"> <label for="Q30_8">Doctorat, habilitation (BAC+8)</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="1" id="Q30_1"> <label for="Q30_1">Agriculteur exploitant</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="2" id="Q30_2"> <label for="Q30_2">Artisan, commerçant et chef d'entreprise</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="3" id="Q30_3"> <label for="Q30_3">Employé</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="4" id="Q30_4"> <label for="Q30_4">Profession intermédiaire</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="5" id="Q30_5"> <label for="Q30_5">Ouvrier</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="6" id="Q30_6"> <label for="Q30_6">Cadre et profession intellectuelle supérieure</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="7" id="Q30_7"> <label for="Q30_7">Sans emploi (retraité, chômeur, étudiant, femme au foyer)</label></div>
                 <div class="form-check"><input type="radio" required name="Q30" value="99" id="Q30_99"> <label for="Q30_99">Préfère ne pas répondre</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q30" value="1" id="Q30_1"> <label for="Q30_1">No diploma</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="2" id="Q30_2"> <label for="Q30_2">Vocational certificates (CAP, BEP)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="3" id="Q30_3"> <label for="Q30_3">Baccalaureate</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="4" id="Q30_4"> <label for="Q30_4">Associate degree equivalent</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="5" id="Q30_5"> <label for="Q30_5">Bachelor's (3 years)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="6" id="Q30_6"> <label for="Q30_6">Maîtrise (4 years)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="7" id="Q30_7"> <label for="Q30_7">Master / Engineering diploma (5 years)</label></div>
-                <div class="form-check"><input type="radio" required name="Q30" value="8" id="Q30_8"> <label for="Q30_8">Doctorate (8 years)</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="1" id="Q30_1"> <label for="Q30_1">Farmer</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="2" id="Q30_2"> <label for="Q30_2">Craftsperson, merchant, business owner</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="3" id="Q30_3"> <label for="Q30_3">Employee</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="4" id="Q30_4"> <label for="Q30_4">Intermediate profession</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="5" id="Q30_5"> <label for="Q30_5">Worker/Laborer</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="6" id="Q30_6"> <label for="Q30_6">Executive and senior intellectual profession</label></div>
+                <div class="form-check"><input type="radio" required name="Q30" value="7" id="Q30_7"> <label for="Q30_7">Unemployed (retired, student, homemaker)</label></div>
                 <div class="form-check"><input type="radio" required name="Q30" value="99" id="Q30_99"> <label for="Q30_99">Prefer not to answer</label></div>
             {% endif %}
         </div>
     </div></div>
 
-    <!-- Q31: Professional category -->
+    <!-- Q31: Income -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q31. Quelle est votre catégorie socio-professionnelle ?{% else %}Q31. What is your professional/social category?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Quel est le revenu mensuel total de votre foyer ?{% else %} What is your household's total monthly income?{% endif %}</span>
         {{ formfield_errors 'Q31' }}
         <div class="choices">
             {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q31" value="1" id="Q31_1"> <label for="Q31_1">Agriculteur exploitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="2" id="Q31_2"> <label for="Q31_2">Artisan, commerçant et chef d'entreprise</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="3" id="Q31_3"> <label for="Q31_3">Employé</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="4" id="Q31_4"> <label for="Q31_4">Profession intermédiaire</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="5" id="Q31_5"> <label for="Q31_5">Ouvrier</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="6" id="Q31_6"> <label for="Q31_6">Cadre et profession intellectuelle supérieure</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="7" id="Q31_7"> <label for="Q31_7">Sans emploi (retraité, chômeur, étudiant, femme au foyer)</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="1" id="Q31_1"> <label for="Q31_1">Moins de 100 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="2" id="Q31_2"> <label for="Q31_2">Entre 100 000 et 150 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="3" id="Q31_3"> <label for="Q31_3">Entre 150 000 et 200 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="4" id="Q31_4"> <label for="Q31_4">Entre 200 000 et 250 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="5" id="Q31_5"> <label for="Q31_5">Entre 250 000 et 300 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="6" id="Q31_6"> <label for="Q31_6">Entre 300 000 et 450 000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="7" id="Q31_7"> <label for="Q31_7">Plus de 450 000 XPF</label></div>
                 <div class="form-check"><input type="radio" required name="Q31" value="99" id="Q31_99"> <label for="Q31_99">Préfère ne pas répondre</label></div>
             {% else %}
-                <div class="form-check"><input type="radio" required name="Q31" value="1" id="Q31_1"> <label for="Q31_1">Farmer</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="2" id="Q31_2"> <label for="Q31_2">Craftsperson, merchant, business owner</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="3" id="Q31_3"> <label for="Q31_3">Employee</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="4" id="Q31_4"> <label for="Q31_4">Intermediate profession</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="5" id="Q31_5"> <label for="Q31_5">Worker/Laborer</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="6" id="Q31_6"> <label for="Q31_6">Executive and senior intellectual profession</label></div>
-                <div class="form-check"><input type="radio" required name="Q31" value="7" id="Q31_7"> <label for="Q31_7">Unemployed (retired, student, homemaker)</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="1" id="Q31_1"> <label for="Q31_1">Less than 100,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="2" id="Q31_2"> <label for="Q31_2">100,000 - 150,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="3" id="Q31_3"> <label for="Q31_3">150,000 - 200,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="4" id="Q31_4"> <label for="Q31_4">200,000 - 250,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="5" id="Q31_5"> <label for="Q31_5">250,000 - 300,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="6" id="Q31_6"> <label for="Q31_6">300,000 - 450,000 XPF</label></div>
+                <div class="form-check"><input type="radio" required name="Q31" value="7" id="Q31_7"> <label for="Q31_7">More than 450,000 XPF</label></div>
                 <div class="form-check"><input type="radio" required name="Q31" value="99" id="Q31_99"> <label for="Q31_99">Prefer not to answer</label></div>
-            {% endif %}
-        </div>
-    </div></div>
-
-    <!-- Q32: Income -->
-    <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %}Q32. Quel est le revenu mensuel total de votre foyer ?{% else %}Q32. What is your household's total monthly income?{% endif %}</span>
-        {{ formfield_errors 'Q32' }}
-        <div class="choices">
-            {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q32" value="1" id="Q32_1"> <label for="Q32_1">Moins de 100 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="2" id="Q32_2"> <label for="Q32_2">Entre 100 000 et 150 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="3" id="Q32_3"> <label for="Q32_3">Entre 150 000 et 200 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="4" id="Q32_4"> <label for="Q32_4">Entre 200 000 et 250 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="5" id="Q32_5"> <label for="Q32_5">Entre 250 000 et 300 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="6" id="Q32_6"> <label for="Q32_6">Entre 300 000 et 450 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="7" id="Q32_7"> <label for="Q32_7">Plus de 450 000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="99" id="Q32_99"> <label for="Q32_99">Préfère ne pas répondre</label></div>
-            {% else %}
-                <div class="form-check"><input type="radio" required name="Q32" value="1" id="Q32_1"> <label for="Q32_1">Less than 100,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="2" id="Q32_2"> <label for="Q32_2">100,000 - 150,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="3" id="Q32_3"> <label for="Q32_3">150,000 - 200,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="4" id="Q32_4"> <label for="Q32_4">200,000 - 250,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="5" id="Q32_5"> <label for="Q32_5">250,000 - 300,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="6" id="Q32_6"> <label for="Q32_6">300,000 - 450,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="7" id="Q32_7"> <label for="Q32_7">More than 450,000 XPF</label></div>
-                <div class="form-check"><input type="radio" required name="Q32" value="99" id="Q32_99"> <label for="Q32_99">Prefer not to answer</label></div>
             {% endif %}
         </div>
     </div></div>

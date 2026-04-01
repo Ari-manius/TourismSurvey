@@ -24,10 +24,8 @@
 	- Locals from other pacific islands  
 	- More systematic, regarding topics and places / Some overlap with Q23
 - [x] Q25: Age as Birthyear instead of categories 
-- [ ] Q20: Maybe provide specific topics, let people rank them? Provide an other field?  
-- [ ] Q21: Revise the question, maybe give people the possibility give a number?
-- [ ] Q24: Separate Prefer not to answer and others
-- [ ] Q32: Provide other field for employment, dont ask for socio-professional category, too convoluted 
+- [x] Q24: Separate Prefer not to answer and others
+- [x] Q32: Provide other field for employment, dont ask for socio-professional category, too convoluted 
 
 ### End Page
 - [x] asking people to further share this link
@@ -46,3 +44,4 @@
 ### General
 - [ ] Is there a budget to get a server? Alternative to server in Konstanz, about 7€ per month 
 - [ ] Share with other University and see if they are interested
+- [ ] Update with french polensia survey v2
