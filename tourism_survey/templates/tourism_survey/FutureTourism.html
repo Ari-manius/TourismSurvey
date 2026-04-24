@@ -22,25 +22,9 @@
     <!-- Q20 -->
     <div class="question-card">
     <div class="question-block">
-        <span class="question-label">{% if lang == "fr" %} Quel nombre de touristes par habitant vous semblerait acceptable en Nouvelle-Calédonie dans les années à venir ?{% else %} What number of tourists per resident would seem acceptable to you in New Caledonia in the coming years?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Quel nombre de touristes pour 100 habitants vous semblerait acceptable en Nouvelle-Calédonie dans les années à venir ? (Veuillez indiquer un nombre){% else %} What number of tourists per 100 inhabitants would you consider acceptable in New Caledonia in the coming years? (Please provide a number){% endif %}</span>
         {{ formfield_errors 'Q20' }}
-        <div class="choices">
-            {% if lang == "fr" %}
-                <div class="form-check"><input type="radio" required name="Q20" value="1" id="Q20_1"> <label for="Q20_1">Moins de 4 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="2" id="Q20_2"> <label for="Q20_2">Entre 5 et 7 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="3" id="Q20_3"> <label for="Q20_3">Entre 8 et 10 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="4" id="Q20_4"> <label for="Q20_4">Entre 11 et 13 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="5" id="Q20_5"> <label for="Q20_5">Plus de 13 touristes par habitant</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="0" id="Q20_0"> <label for="Q20_0">Aucun avis</label></div>
-            {% else %}
-                <div class="form-check"><input type="radio" required name="Q20" value="1" id="Q20_1"> <label for="Q20_1">Fewer than 4 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="2" id="Q20_2"> <label for="Q20_2">Between 5 and 7 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="3" id="Q20_3"> <label for="Q20_3">Between 8 and 10 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="4" id="Q20_4"> <label for="Q20_4">Between 11 and 13 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="5" id="Q20_5"> <label for="Q20_5">More than 13 tourists per resident</label></div>
-                <div class="form-check"><input type="radio" required name="Q20" value="0" id="Q20_0"> <label for="Q20_0">No opinion</label></div>
-            {% endif %}
-        </div>
+        <input type="number" required name="Q20" min="0" style="width:120px; margin-top:10px;" placeholder="{% if lang == 'fr' %}Nombre...{% else %}Number...{% endif %}">
     </div>
     </div>
 
@@ -102,9 +86,9 @@
                     <td class="radio-cell"><input type="radio" required name="Q21_asia" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_asia" value="4"></td></tr>
                 <tr><td class="statement">{% if lang == "fr" %}Les touristes d'autres pays{% else %}Tourists from other countries{% endif %}</td>
                     <td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_other_countries" value="4"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Les touristes d'affaires{% else %}Business tourists{% endif %}</td>
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes d'affaires (congrès, meetings, salon, ...){% else %}Business tourists (congress, meetings, ...){% endif %}</td>
                     <td class="radio-cell"><input type="radio" required name="Q21_business" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_business" value="4"></td></tr>
-                <tr><td class="statement">{% if lang == "fr" %}Les touristes événementiels{% else %}Event tourists{% endif %}</td>
+                <tr><td class="statement">{% if lang == "fr" %}Les touristes événementiels (festivals, évènements sportifs, ...){% else %}Event tourists (festivals, events, sports, ...){% endif %}</td>
                     <td class="radio-cell"><input type="radio" required name="Q21_event" value="1"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="2"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="3"></td><td class="radio-cell"><input type="radio" required name="Q21_event" value="4"></td></tr>
             </tbody>
         </table>

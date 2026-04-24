@@ -118,7 +118,9 @@ class Player(BasePlayer):
     Q10_health = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q10_water = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q10_electricity = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
-    Q10_transport = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_public_transport = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_private_transport = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
+    Q10_admin_services = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q10_other = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
     Q10_other_specify = models.StringField(blank=True)
     Q11 = models.IntegerField(choices=Constants.SCALE_0_10_CHOICES, blank=True)
@@ -159,11 +161,7 @@ class Player(BasePlayer):
     Q19 = models.LongStringField(blank=True)
 
     # === Page 9: Future Tourism Directions ===
-    Q20 = models.IntegerField(
-        choices=[[1, ''], [2, ''], [3, ''], [4, ''], [5, ''], [0, '']],
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
+    Q20 = models.IntegerField(blank=True)
     # Q21: visitor types matrix (8 items, scale 1-4)
     Q21_local_here = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)
     Q21_local_wallisfutuna = models.IntegerField(choices=[[1, ''], [2, ''], [3, ''], [4, '']], widget=widgets.RadioSelectHorizontal, blank=True)

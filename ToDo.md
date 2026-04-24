@@ -14,9 +14,10 @@
 	- [x] Partie 6: Parlez Nous de Vous 
 - [x] Remove Subunit titles 
 - [x] Introduce Progression Bar for Survey at top 
-- [ ] Randomize order of answer options for questions with tables 
+- [x] Randomize order of answer options for questions with tables 
 - [ ] make survey modular for other Islands and Universisities 
 	- what would need to be changed 
+- [ ] add survey link to screenout and Endpage
 
 ### Specific Questions 
 - [x] Q22: Change to local tourism and Tourism from French Polynesia 
@@ -44,4 +45,5 @@
 ### General
 - [ ] Is there a budget to get a server? Alternative to server in Konstanz, about 7€ per month 
 - [ ] Share with other University and see if they are interested
-- [ ] Update with french polensia survey v2
+- [x] Update with french polensia survey v2
+- [ ] Pilot testing 

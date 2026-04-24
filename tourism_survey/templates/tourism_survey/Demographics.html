@@ -190,7 +190,7 @@
 
     <!-- Q31: Income -->
     <div class="question-card"><div class="question-block">
-        <span class="question-label">{% if lang == "fr" %} Quel est le revenu mensuel total de votre foyer ?{% else %} What is your household's total monthly income?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Quel est le revenu mensuel total de votre foyer (en incluant toutes les personnes vivant sous le même toit)?{% else %} What is your household's total monthly income? (including all people living under the same roof){% endif %}</span>
         {{ formfield_errors 'Q31' }}
         <div class="choices">
             {% if lang == "fr" %}
