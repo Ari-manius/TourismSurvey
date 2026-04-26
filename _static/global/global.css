@@ -1,754 +1,595 @@
-/* Header */
-.page-header {
-    background-color: #f9f9f9;
+/* ============================================================
+   global.css — Tourism Survey oTree
+   Mobile-first, div-based component system
+   ============================================================ */
+
+:root {
+  --primary:       #003366;
+  --primary-dark:  #0b3d91;
+  --text:          #333;
+  --text-muted:    #666;
+  --border:        #dee2e6;
+  --bg-light:      #f8f9fa;
+  --error:         #d32f2f;
+  /* 5-point scale — header / body */
+  --sc5-1h:#f8d7da; --sc5-1b:#fef2f2;
+  --sc5-2h:#ffe0cc; --sc5-2b:#fff8f0;
+  --sc5-3h:#fff3cd; --sc5-3b:#fffef5;
+  --sc5-4h:#d4edda; --sc5-4b:#f0faf0;
+  --sc5-5h:#b8dfc8; --sc5-5b:#e8f5e9;
+  --sc5-nh:#e2e3e5; --sc5-nb:#f5f5f5;
+  /* FSM scale */
+  --fsm-1h:#f8d7da; --fsm-1b:#fef2f2;
+  --fsm-2h:#fff3cd; --fsm-2b:#fffef5;
+  --fsm-3h:#b8dfc8; --fsm-3b:#e8f5e9;
+  --fsm-4h:#e2e3e5; --fsm-4b:#f5f5f5;
 }
+
+/* --- 0-10 scale color classes (used on .radio-scale labels) --- */
+.sc-10-0  { background:#e57373; }
+.sc-10-1  { background:#ef9a9a; }
+.sc-10-2  { background:#ffab91; }
+.sc-10-3  { background:#ffcc80; }
+.sc-10-4  { background:#ffe082; }
+.sc-10-5  { background:#fff9c4; }
+.sc-10-6  { background:#e6ee9c; }
+.sc-10-7  { background:#c5e1a5; }
+.sc-10-8  { background:#a5d6a7; }
+.sc-10-9  { background:#81c784; }
+.sc-10-10 { background:#66bb6a; }
+.sc-10-na { background:#e2e3e5; }
+
+/* ============================================================
+   Header
+   ============================================================ */
+.page-header { background-color: #f9f9f9; }
 
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 1rem;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
-.logo img {
-    max-height: 110px;
-    height: auto;
-}
+.logo img { max-height: 110px; height: auto; }
 
 .progress-bar-container {
-    max-width: 1200px;
-    margin: 0px auto 0;
-    background-color: #e9ecef;
-    border-radius: 6px;
-    height: 10px;
-    overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
 }
 
 .progress-bar-fill {
-    height: 100%;
-    background-color: #003366;
-    border-radius: 6px;
-    transition: width 0.4s ease;
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 6px;
+  transition: width 0.4s ease;
 }
 
 .title h1 {
-    margin: 0;
-    font-size: 1.6rem;
-    color: #003366;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-align: center;
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--primary);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
-.page-header hr {
-    margin: 0.8rem 0 0 0;
-    border: none;
-    border-top: 1px solid #ddd;
-}
+.page-header hr { margin: 0.8rem 0 0; border: none; border-top: 1px solid #ddd; }
 
-/* Layout */
+/* ============================================================
+   Layout
+   ============================================================ */
 .container { width: 96%; max-width: 1000px; margin: 0 auto; padding: 20px 10px; }
 .container.wide { max-width: 1200px; }
 
 .section-header {
-    background-color: #f5f5f5;
-    border-left: 4px solid #0645ad;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-    border-radius: 0 4px 4px 0;
+  background-color: #f5f5f5;
+  border-left: 4px solid #0645ad;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  border-radius: 0 4px 4px 0;
 }
 .section-header h2 { margin-top: 0; margin-bottom: 8px; color: #202122; font-size: 1.4rem; }
-.section-header p { line-height: 1.6; color: #444; margin-bottom: 0; }
-.section-header .note { font-size: 12px; color: #666; margin-top: 10px; }
+.section-header p  { line-height: 1.6; color: #444; margin-bottom: 0; }
+.section-header .note { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
 
-/* Forms */
+.subsection-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+/* ============================================================
+   Forms base
+   ============================================================ */
 form { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
 .form-group { margin-bottom: 25px; }
-.form-group > label { display: block; margin-bottom: 10px; font-weight: bold; color: #333; }
-
+.form-group > label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--text); }
 .form-group .controls { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 5px; }
-.form-group .controls label { font-weight: normal; color: #444; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+
+select, textarea, input[type="text"] {
+  width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 3px;
+  font-family: Arial, sans-serif; font-size: 16px; box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+select:focus, textarea:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+textarea { min-height: 100px; }
+input[type="number"] { width: 120px; padding: 10px; border: 1px solid #ccc; border-radius: 3px; font-size: 16px; text-align: center; }
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
 input[type="radio"] { margin: 0; }
 
-textarea, input[type="text"] {
-    width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 3px;
-    font-family: Arial, sans-serif; min-height: 100px; box-sizing: border-box;
-}
-input[type="text"] { min-height: unset; }
+.field-error, .errorlist, .form-group .help-block { color: var(--error); font-size: 13px; margin-top: 4px; }
 
-input[type="number"] {
-    width: 80px; padding: 8px; border: 1px solid #ccc; border-radius: 3px;
-    font-size: 16px; text-align: center;
-}
-
-.field-error, .form-group .help-block { color: #d32f2f; font-size: 13px; margin-top: 4px; }
-
-/* Buttons */
-.submit-row { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center; }
-button { background-color: #0645ad; color: white; padding: 10px 30px; border: none; border-radius: 3px; cursor: pointer; font-size: 16px; }
-button:hover { background-color: #0b3d91; }
-
-/* Scale reference box */
-.scale-ref {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 12px 16px;
-    margin-bottom: 25px;
-    font-size: 13px;
-    color: #555;
-    line-height: 1.6;
-}
-.scale-ref strong { color: #333; }
-.scale-ref .sc1 { background-color: #f8d7da; padding: 2px 6px; border-radius: 3px; }
-.scale-ref .sc2 { background-color: #ffe0cc; padding: 2px 6px; border-radius: 3px; }
-.scale-ref .sc3 { background-color: #fff3cd; padding: 2px 6px; border-radius: 3px; }
-.scale-ref .sc4 { background-color: #d4edda; padding: 2px 6px; border-radius: 3px; }
-.scale-ref .sc5 { background-color: #b8dfc8; padding: 2px 6px; border-radius: 3px; }
-.scale-ref .sc99 { background-color: #e2e3e5; padding: 2px 6px; border-radius: 3px; }
-
-/* ============================================
-   Question card — wraps each question in a
-   white card with padding and subtle border
-   ============================================ */
+/* ============================================================
+   Question card
+   ============================================================ */
 .question-card {
-    background: #fff;
-    border: 2px solid #e9ecef;
-    border-radius: 6px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    transition: border-color 0.3s ease;
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: border-color 0.3s ease;
+}
+.question-card.unanswered { border-color: #dc3545; }
+
+/* ============================================================
+   Simple question block (radio list)
+   ============================================================ */
+.question-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
-.question-card.unanswered {
-    border-color: #dc3545;
+.choices { margin-left: 5px; }
+
+.form-check { padding: 5px 0; }
+.form-check label { font-weight: normal; color: #444; cursor: pointer; padding-left: 6px; }
+
+/* ============================================================
+   Select (province/municipality)
+   ============================================================ */
+.q-select-group { margin-bottom: 12px; }
+.q-select-label { font-weight: 600; display: block; margin-bottom: 4px; }
+.q-select { width: 100%; padding: 8px; font-size: 1rem; border: 1px solid var(--border); border-radius: 4px; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; }
+.q-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1); }
+.form-number-input { width: 100%; padding: 8px; font-size: 1rem; border: 1px solid var(--border); border-radius: 4px; transition: border-color 0.2s, box-shadow 0.2s; }
+.form-number-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1); }
+
+/* ============================================================
+   Scale reference box
+   ============================================================ */
+.scale-ref {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 25px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+.scale-ref strong { color: var(--text); }
+.scale-ref-cols { display: flex; gap: 30px; flex-wrap: wrap; }
+.sc1  { background: var(--sc5-1h); padding: 2px 6px; border-radius: 3px; }
+.sc2  { background: var(--sc5-2h); padding: 2px 6px; border-radius: 3px; }
+.sc3  { background: var(--sc5-3h); padding: 2px 6px; border-radius: 3px; }
+.sc4  { background: var(--sc5-4h); padding: 2px 6px; border-radius: 3px; }
+.sc5  { background: var(--sc5-5h); padding: 2px 6px; border-radius: 3px; }
+.sc99 { background: var(--sc5-nh); padding: 2px 6px; border-radius: 3px; }
+
+/* ============================================================
+   q-likert — div-based Likert matrix
+   ============================================================ */
+.q-likert { border-radius: 6px; overflow: hidden; }
+
+/* Shared grid — 5-point (default): statement + 5 cols + N/A */
+.ql-head, .ql-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) repeat(5, 52px) 52px;
+  align-items: stretch;
 }
 
-/* ============================================
-   Survey table for likert / matrix questions
-   ============================================ */
-.survey-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    table-layout: fixed;
+/* FSM variant: statement + 3 cols + No opinion */
+.q-likert.scale-fsm .ql-head,
+.q-likert.scale-fsm .ql-row {
+  grid-template-columns: minmax(150px, 1fr) repeat(3, 68px) 68px;
 }
 
-.survey-table th,
-.survey-table td {
-    padding: 12px 4px;
-    border-bottom: 1px solid #e9ecef;
-    vertical-align: middle;
+/* Header */
+.ql-head {
+  background: #f5f5f5;
+  border-bottom: 2px solid var(--border);
+}
+.ql-head .ql-cell {
+  font-size: 13px; font-weight: 600; color: var(--text);
+  text-align: center; padding: 10px 4px;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.survey-table thead th {
-    background-color: #f5f5f5;
-    font-size: 13px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    border-bottom: 2px solid #dee2e6;
-    line-height: 1.3;
+/* 5-point header colors */
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(2) { background: var(--sc5-1h); }
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(3) { background: var(--sc5-2h); }
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(4) { background: var(--sc5-3h); }
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(5) { background: var(--sc5-4h); }
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(6) { background: var(--sc5-5h); }
+.q-likert:not(.scale-fsm) .ql-head .ql-cell:nth-child(7) { background: var(--sc5-nh); }
+
+/* FSM header colors */
+.q-likert.scale-fsm .ql-head .ql-cell:nth-child(2) { background: var(--fsm-1h); }
+.q-likert.scale-fsm .ql-head .ql-cell:nth-child(3) { background: var(--fsm-2h); }
+.q-likert.scale-fsm .ql-head .ql-cell:nth-child(4) { background: var(--fsm-3h); }
+.q-likert.scale-fsm .ql-head .ql-cell:nth-child(5) { background: var(--fsm-4h); }
+
+/* Body rows */
+.ql-row { border-bottom: 1px solid #e9ecef; }
+.ql-row:last-child { border-bottom: none; }
+.ql-row:nth-child(even) { background: #fafbfc; }
+.ql-row:hover { background: var(--bg-light); }
+
+.ql-statement {
+  font-size: 14px; line-height: 1.5; color: var(--text);
+  padding: 12px 12px 12px 4px;
+  display: flex; align-items: center;
 }
 
-/* (Scale text labels removed — color coding replaces them) */
+/* Clickable radio cells (label wrapper) */
+.ql-cell.radio-cell {
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; min-height: 48px;
+  transition: filter 0.15s;
+}
+.ql-cell.radio-cell input[type="radio"] { transform: scale(1.2); cursor: pointer; }
 
-.survey-table thead th:first-child {
-    text-align: left;
+/* 5-point body colors */
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(2) { background: var(--sc5-1b); }
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(3) { background: var(--sc5-2b); }
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(4) { background: var(--sc5-3b); }
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(5) { background: var(--sc5-4b); }
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(6) { background: var(--sc5-5b); }
+.q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(7) { background: var(--sc5-nb); }
+
+/* FSM body colors */
+.q-likert.scale-fsm .ql-row .ql-cell:nth-child(2) { background: var(--fsm-1b); }
+.q-likert.scale-fsm .ql-row .ql-cell:nth-child(3) { background: var(--fsm-2b); }
+.q-likert.scale-fsm .ql-row .ql-cell:nth-child(4) { background: var(--fsm-3b); }
+.q-likert.scale-fsm .ql-row .ql-cell:nth-child(5) { background: var(--fsm-4b); }
+
+/* Checked state — :has() for modern browsers, .checked class added by JS for older */
+.ql-cell.radio-cell:has(input:checked),
+.ql-cell.radio-cell.checked {
+  outline: 3px solid var(--primary);
+  outline-offset: -3px;
+  filter: brightness(0.88);
+  border-radius: 3px;
+}
+.ql-cell.radio-cell:active { filter: brightness(0.8); }
+
+/* ============================================================
+   q-paired — unified importance + satisfaction grid
+   ============================================================ */
+.qp-item { /* extends .question-card */ }
+
+.qp-statement {
+  font-weight: 600; font-size: 15px; color: var(--text);
+  line-height: 1.5; margin-bottom: 14px;
 }
 
-.survey-table tbody tr:hover {
-    background-color: #f8f9fa;
+.qp-group {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.qp-group:last-of-type { margin-bottom: 0; }
+
+.qp-label {
+  width: 90px; flex-shrink: 0;
+  font-weight: 700; font-size: 12px; color: var(--primary);
+  text-transform: uppercase; letter-spacing: 0.5px;
 }
 
-.survey-table tbody tr:nth-child(even) {
-    background-color: #fafbfc;
+.qp-cells { display: flex; gap: 6px; flex: 1; }
+
+.qp-cell {
+  flex: 1; min-height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 5px; cursor: pointer;
+  font-weight: 600; color: #555; font-size: 14px;
+  border: 2px solid transparent;
+  transition: filter 0.15s, border-color 0.15s;
 }
+.qp-cell input[type="radio"] { display: none; }
 
-.survey-table .statement {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #333;
-    padding-right: 12px;
+.qp-cells .qp-cell:nth-child(1) { background: var(--sc5-1h); }
+.qp-cells .qp-cell:nth-child(2) { background: var(--sc5-2h); }
+.qp-cells .qp-cell:nth-child(3) { background: var(--sc5-3h); }
+.qp-cells .qp-cell:nth-child(4) { background: var(--sc5-4h); }
+.qp-cells .qp-cell:nth-child(5) { background: var(--sc5-5h); }
+.qp-cell.qp-na { background: var(--sc5-nb); color: #666; font-size: 12px; }
+
+.qp-cell:has(input:checked),
+.qp-cell.checked {
+  border-color: var(--primary);
+  filter: brightness(0.85);
+  color: #000;
 }
+.qp-cell:active { filter: brightness(0.75); }
 
-.survey-table .radio-cell {
-    text-align: center;
-    width: 40px;
-}
-
-
-.survey-table .radio-cell input[type="radio"] {
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-/* ============================================
-   Paired table (importance + satisfaction)
-   ============================================ */
-.survey-table .col-divider {
-    border-left: 2px solid #dee2e6;
-}
-.survey-table .group-header {
-    text-align: center;
-    font-weight: 700;
-    font-size: 14px;
-    color: #003366;
-    background-color: #eef2f7;
-    border-bottom: 2px solid #dee2e6;
-}
-
-/* ============================================
-   Color-coded scale columns (red → green)
-   Standard 5-point tables (7 cols)
-   ============================================ */
-/* Headers — standard 5-point scale only */
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(2) { background-color: #f8d7da; }
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(3) { background-color: #ffe0cc; }
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(4) { background-color: #fff3cd; }
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(5) { background-color: #d4edda; }
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(6) { background-color: #b8dfc8; }
-.survey-table:not(.paired):not(.scale-fsm) thead th:nth-child(7) { background-color: #e2e3e5; }
-/* Body cells — standard 5-point scale only */
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(2) { background-color: #fef2f2; }
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(3) { background-color: #fff8f0; }
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(4) { background-color: #fffef5; }
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(5) { background-color: #f0faf0; }
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(6) { background-color: #e8f5e9; }
-.survey-table:not(.paired):not(.scale-fsm) tbody td:nth-child(7) { background-color: #f5f5f5; }
-
-/* Fewer / Same / More / No opinion (Q22) */
-.survey-table.scale-fsm thead th:nth-child(2) { background-color: #f8d7da; }
-.survey-table.scale-fsm thead th:nth-child(3) { background-color: #fff3cd; }
-.survey-table.scale-fsm thead th:nth-child(4) { background-color: #b8dfc8; }
-.survey-table.scale-fsm thead th:nth-child(5) { background-color: #e2e3e5; }
-.survey-table.scale-fsm tbody td:nth-child(2) { background-color: #fef2f2; }
-.survey-table.scale-fsm tbody td:nth-child(3) { background-color: #fffef5; }
-.survey-table.scale-fsm tbody td:nth-child(4) { background-color: #e8f5e9; }
-.survey-table.scale-fsm tbody td:nth-child(5) { background-color: #f5f5f5; }
-
-/* Paired table color coding — importance (td 2-6) */
-.survey-table.paired tbody td:nth-child(2)  { background-color: #fef2f2; }
-.survey-table.paired tbody td:nth-child(3)  { background-color: #fff8f0; }
-.survey-table.paired tbody td:nth-child(4)  { background-color: #fffef5; }
-.survey-table.paired tbody td:nth-child(5)  { background-color: #f0faf0; }
-.survey-table.paired tbody td:nth-child(6)  { background-color: #e8f5e9; }
-/* Paired table color coding — satisfaction (td 7-11) */
-.survey-table.paired tbody td:nth-child(7)  { background-color: #fef2f2; }
-.survey-table.paired tbody td:nth-child(8)  { background-color: #fff8f0; }
-.survey-table.paired tbody td:nth-child(9)  { background-color: #fffef5; }
-.survey-table.paired tbody td:nth-child(10) { background-color: #f0faf0; }
-.survey-table.paired tbody td:nth-child(11) { background-color: #e8f5e9; }
-/* Paired header row 2 — importance (th 1-5) */
-.survey-table.paired thead tr:nth-child(2) th:nth-child(1)  { background-color: #f8d7da; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(2)  { background-color: #ffe0cc; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(3)  { background-color: #fff3cd; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(4)  { background-color: #d4edda; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(5)  { background-color: #b8dfc8; }
-/* Paired header row 2 — satisfaction (th 6-10) */
-.survey-table.paired thead tr:nth-child(2) th:nth-child(6)  { background-color: #f8d7da; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(7)  { background-color: #ffe0cc; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(8)  { background-color: #fff3cd; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(9)  { background-color: #d4edda; }
-.survey-table.paired thead tr:nth-child(2) th:nth-child(10) { background-color: #b8dfc8; }
-
-
-
-/* ============================================
-   Subsection headers within a page
-   ============================================ */
-.subsection-header {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #003366;
-    margin: 30px 0 15px 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e9ecef;
-}
-
-/* ============================================
-   Radio question block (inside cards)
-   ============================================ */
-.question-block {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.question-block:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.question-block .question-label {
-    display: block;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 12px;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.question-block .choices {
-    margin-left: 5px;
-}
-
-.question-block .choices .form-check {
-    padding: 5px 0;
-}
-
-.question-block .choices .form-check label {
-    font-weight: normal;
-    color: #444;
-    cursor: pointer;
-    padding-left: 6px;
-}
-
-/* ============================================
-   Scale input row (for 0-10 scales)
-   ============================================ */
-.scale-input {
-    margin-bottom: 0;
-    padding: 0;
-}
-
-.scale-input .scale-label {
-    display: block;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 6px;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.scale-input .scale-hint {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 8px;
-}
-
-.scale-input .scale-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.scale-input .scale-row .scale-min,
-.scale-input .scale-row .scale-max {
-    font-size: 12px;
-    color: #888;
-    white-space: nowrap;
-}
-
-/* ============================================
-   Radio scale (0-10) — horizontal radio row
-   ============================================ */
+/* ============================================================
+   0-10 radio scale
+   ============================================================ */
 .radio-scale {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    margin-top: 8px;
+  display: flex; align-items: stretch;
+  flex-wrap: nowrap; margin-top: 8px; gap: 2px;
 }
 
 .radio-scale label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 6px 8px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    color: #555;
-    min-width: 36px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 10px 4px; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: #333;
+  min-width: 0; flex: 1; border-radius: 4px;
+  border: 2px solid transparent;
+  transition: filter 0.15s, border-color 0.15s;
+  user-select: none;
 }
-
-.radio-scale label input[type="radio"] {
-    transform: scale(1.2);
-    cursor: pointer;
-}
+.radio-scale label input[type="radio"] { display: none; }
 
 .radio-scale .nsp-label {
-    margin-left: 12px;
-    padding-left: 12px;
-    border-left: 1px solid #ddd;
-    color: #888;
-    font-size: 11px;
+  flex: 0 0 auto; min-width: 36px;
+  margin-left: 4px;
+  background: #e2e3e5; color: var(--text-muted);
+  font-size: 11px; border-left: 2px solid #bbb; border-radius: 4px;
 }
 
-/* Checked state — ring outline so selected value is obvious */
-.radio-scale label:has(input[type="radio"]:checked) {
-    outline: 3px solid #003366;
-    outline-offset: -2px;
-    border-radius: 4px;
+.radio-scale label:has(input:checked),
+.radio-scale label.checked {
+  outline: 3px solid var(--primary);
+  outline-offset: -2px;
+  filter: brightness(0.82);
+  color: #000;
 }
 
-/* 0-10 radio scale colors are applied via inline styles in templates */
+/* ============================================================
+   Scale input (0-10 single question)
+   ============================================================ */
+.scale-input { margin-bottom: 0; padding: 0; }
 
-/* ============================================
-   Service matrix rows
-   ============================================ */
+.scale-label {
+  display: block; font-weight: 600; color: var(--text);
+  margin-bottom: 6px; font-size: 15px; line-height: 1.5;
+}
+
+.scale-hint {
+  font-size: 13px; color: #777; margin-bottom: 8px;
+}
+
+.scale-row { display: flex; align-items: center; gap: 10px; }
+.scale-min, .scale-max { font-size: 12px; color: #888; white-space: nowrap; }
+
+/* ============================================================
+   Service matrix rows (0-10 per service)
+   ============================================================ */
 .service-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 0;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
+  display: flex; align-items: center; gap: 15px;
+  padding: 12px 0; border-bottom: 1px solid #f0f0f0;
+}
+.service-row:last-child { border-bottom: none; }
+
+.service-name {
+  width: 140px; font-weight: 600;
+  font-size: 14px; color: var(--text); flex-shrink: 0;
+}
+.service-input { flex: 1; }
+
+/* ============================================================
+   Submit row + buttons
+   ============================================================ */
+.submit-row {
+  margin-top: 30px; padding-top: 20px;
+  border-top: 1px solid #ccc; text-align: center;
 }
 
-.service-row:last-child {
-    border-bottom: none;
+button {
+  background-color: var(--primary); color: white;
+  padding: 10px 30px; border: none; border-radius: 3px;
+  cursor: pointer; font-size: 16px;
 }
+button:hover { background-color: var(--primary-dark); }
 
-.service-row .service-name {
-    width: 140px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
-    flex-shrink: 0;
+/* ============================================================
+   Controls (language select)
+   ============================================================ */
+.controls {
+  display: flex; gap: 15px; flex-wrap: wrap;
+  justify-content: center;
 }
-
-.service-row .service-input {
-    flex: 1;
+.controls label {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 20px; background: var(--bg-light);
+  border: 2px solid var(--border); border-radius: 8px;
+  font-size: 16px; font-weight: 600; cursor: pointer;
+  min-width: 120px; justify-content: center;
 }
+.controls label:has(input:checked) {
+  border-color: var(--primary); background: #eef2f7;
+}
+.controls input[type="radio"] { transform: scale(1.3); }
 
-/* ============================================
+/* ============================================================
    Language select page
-   ============================================ */
-.language-select {
-    max-width: 500px;
-    margin: 60px auto;
-    text-align: center;
-}
+   ============================================================ */
+.language-select { max-width: 500px; margin: 60px auto; text-align: center; }
+.language-select h3 { color: var(--primary); margin-bottom: 5px; }
+.language-select .subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
 
-.language-select h3 {
-    color: #003366;
-    margin-bottom: 5px;
-}
-
-.language-select .subtitle {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 30px;
-}
-
-/* ============================================
-   Thank you page
-   ============================================ */
+/* ============================================================
+   Thank you / screened out
+   ============================================================ */
 .thank-you { max-width: 600px; margin: 60px auto; text-align: center; padding: 0 15px; }
 .thank-you h2 { color: #2e7d32; margin-bottom: 15px; }
 .thank-you p { color: #444; line-height: 1.8; font-size: 16px; }
 
-/* Notice / screened out */
-.notice { margin-top: 20px; padding: 15px; background-color: #fff9e6; border: 1px solid #ffd966; border-radius: 3px; }
+.notice {
+  margin-top: 20px; padding: 15px;
+  background-color: #fff9e6; border: 1px solid #ffd966;
+  border-radius: 3px;
+}
 .notice p { margin: 0; font-size: 14px; line-height: 1.6; color: #444; }
 
-/* ============================================
-   Responsive — Smartphone
-   ============================================ */
-@media (max-width: 768px) {
-    .title h1 { font-size: 1.2rem; text-align: center; }
-    .header-container { justify-content: center; text-align: center; }
-    .logo img { max-height: 80px; }
-    .form-group .controls { flex-direction: column; gap: 8px; }
-    .question-card { padding: 15px; }
-    button { width: 100%; padding: 14px; font-size: 17px; }
-    .service-row { flex-direction: column; align-items: flex-start; gap: 5px; }
-    .service-row .service-name { width: 100%; }
-    .container { width: 100%; padding: 12px 6px; }
-    .container.wide { max-width: 100%; padding: 12px 6px; }
-    .scale-ref { font-size: 12px; line-height: 1.5; }
+/* ============================================================
+   Mobile — ≤599px
+   ============================================================ */
+@media (max-width: 599px) {
+  /* Header */
+  .title h1 { font-size: 1.2rem; text-align: center; }
+  .header-container { justify-content: center; text-align: center; }
+  .logo img { max-height: 80px; }
 
-    /* --- 5-point & FSM Likert tables → stacked cards --- */
-    .survey-table:not(.paired) { display: block; }
-    .survey-table:not(.paired) thead { display: none; }
-    .survey-table:not(.paired) tbody { display: block; }
-    .survey-table:not(.paired) tbody tr {
-        display: block;
-        padding: 14px 0;
-        border-bottom: 1px solid #e9ecef;
-    }
-    .survey-table:not(.paired) tbody tr:last-child { border-bottom: none; }
-    .survey-table:not(.paired) tbody td {
-        display: inline-block;
-        border-bottom: none;
-        padding: 0;
-        background: none !important;
-    }
-    .survey-table:not(.paired) tbody td.statement {
-        display: block;
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 10px;
-        padding-right: 0;
-    }
-    .survey-table:not(.paired) tbody td.radio-cell {
-        width: auto;
-        text-align: center;
-        padding: 0 2px;
-    }
-    /* Show scale value labels on mobile */
-    .survey-table:not(.paired) tbody td.radio-cell::before {
-        display: block;
-        font-size: 11px;
-        font-weight: 600;
-        color: #666;
-        margin-bottom: 4px;
-    }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(2)::before { content: "1"; }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(3)::before { content: "2"; }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(4)::before { content: "3"; }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(5)::before { content: "4"; }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(6)::before { content: "5"; }
-    .survey-table:not(.paired) tbody td.radio-cell:nth-of-type(7)::before { content: "N/A"; }
-    /* FSM scale labels (Fewer/Same/More/No opinion) */
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(2)::before { content: "▼"; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(3)::before { content: "="; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(4)::before { content: "▲"; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(5)::before { content: "—"; }
+  /* Layout */
+  .container, .container.wide { width: 100%; padding: 12px 8px; }
 
-    /* Color-code the mobile radio cells (standard 5-point) */
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(2) { background-color: #f8d7da !important; border-radius: 6px; }
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(3) { background-color: #ffe0cc !important; border-radius: 6px; }
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(4) { background-color: #fff3cd !important; border-radius: 6px; }
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(5) { background-color: #d4edda !important; border-radius: 6px; }
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(6) { background-color: #b8dfc8 !important; border-radius: 6px; }
-    .survey-table:not(.paired):not(.scale-fsm) tbody td.radio-cell:nth-of-type(7) { background-color: #e2e3e5 !important; border-radius: 6px; }
-    /* FSM mobile colors */
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(2) { background-color: #f8d7da !important; border-radius: 6px; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(3) { background-color: #fff3cd !important; border-radius: 6px; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(4) { background-color: #b8dfc8 !important; border-radius: 6px; }
-    .survey-table.scale-fsm tbody td.radio-cell:nth-of-type(5) { background-color: #e2e3e5 !important; border-radius: 6px; }
+  /* Cards */
+  .question-card { padding: 14px 12px; margin-bottom: 14px; }
+  .section-header { padding: 12px 14px; }
+  .section-header h2 { font-size: 1.15rem; }
 
-    /* Bigger radio touch targets */
-    .survey-table:not(.paired) tbody td.radio-cell input[type="radio"] {
-        transform: scale(1.5);
-        margin: 6px 4px;
-    }
+  /* Form check — big touch targets */
+  .form-check { padding: 2px 0; }
+  .form-check label {
+    display: block; padding: 11px 14px; font-size: 15px;
+    background: var(--bg-light); border: 1px solid var(--border);
+    border-radius: 6px; margin-bottom: 6px; cursor: pointer; line-height: 1.4;
+    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  }
 
-    /* --- Paired table (importance + satisfaction) → stacked rows --- */
-    .survey-table.paired { display: block; }
-    .survey-table.paired colgroup { display: none; }
-    .survey-table.paired thead { display: none; }
-    .survey-table.paired tbody { display: block; }
-    .survey-table.paired tbody tr {
-        display: grid;
-        /* 5 cols: importance fills row 2, satisfaction fills row 3 */
-        grid-template-columns: repeat(5, 1fr);
-        padding: 14px 0;
-        border-bottom: 1px solid #dee2e6;
-        gap: 4px 2px;
-    }
-    .survey-table.paired tbody tr:last-child { border-bottom: none; }
-    .survey-table.paired tbody td {
-        border-bottom: none;
-        border-left: none !important;
-        padding: 0;
-        background: none !important;
-    }
-    .survey-table.paired tbody td.statement {
-        grid-column: 1 / -1;
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        padding-right: 0;
-    }
-    .survey-table.paired tbody td.radio-cell {
-        width: auto;
-        text-align: center;
-        padding: 2px 0;
-    }
-    /* Number labels above each radio */
-    .survey-table.paired tbody td.radio-cell::before {
-        display: block;
-        font-size: 10px;
-        font-weight: 600;
-        color: #666;
-        margin-bottom: 3px;
-    }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(2)::before  { content: "1"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(3)::before  { content: "2"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(4)::before  { content: "3"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(5)::before  { content: "4"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(6)::before  { content: "5"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(7)::before  { content: "1"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(8)::before  { content: "2"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(9)::before  { content: "3"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(10)::before { content: "4"; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(11)::before { content: "5"; }
-    /* Group row labels (Importance / Satisfaction) — sits above first cell of each group */
-    .survey-table.paired tbody td.radio-cell:nth-of-type(2),
-    .survey-table.paired tbody td.radio-cell:nth-of-type(7) {
-        position: relative;
-        margin-top: 22px;
-    }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(2)::after {
-        content: "Importance";
-        position: absolute;
-        top: -20px; left: 0;
-        font-size: 10px; font-weight: 700;
-        color: #003366; white-space: nowrap;
-        background: #eef2f7; padding: 1px 5px; border-radius: 3px;
-    }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(7)::after {
-        content: "Satisfaction";
-        position: absolute;
-        top: -20px; left: 0;
-        font-size: 10px; font-weight: 700;
-        color: #003366; white-space: nowrap;
-        background: #eef2f7; padding: 1px 5px; border-radius: 3px;
-    }
-    /* Color coding — importance (nth-of-type 2-6) */
-    .survey-table.paired tbody td.radio-cell:nth-of-type(2)  { background-color: #f8d7da !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(3)  { background-color: #ffe0cc !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(4)  { background-color: #fff3cd !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(5)  { background-color: #d4edda !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(6)  { background-color: #b8dfc8 !important; border-radius: 6px; }
-    /* Color coding — satisfaction (nth-of-type 7-11) */
-    .survey-table.paired tbody td.radio-cell:nth-of-type(7)  { background-color: #f8d7da !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(8)  { background-color: #ffe0cc !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(9)  { background-color: #fff3cd !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(10) { background-color: #d4edda !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell:nth-of-type(11) { background-color: #b8dfc8 !important; border-radius: 6px; }
-    .survey-table.paired tbody td.radio-cell input[type="radio"] {
-        transform: scale(1.5);
-        margin: 6px 4px;
-    }
+  .form-check label:active {
+    background: #d4d8dd !important;
+    border-color: var(--primary) !important;
+    font-weight: 600;
+  }
+  .form-check input[type="radio"]:checked ~ label {
+    border-color: var(--primary);
+    background: #eef2f7;
+    font-weight: 600;
+  }
+  .form-check input[type="radio"]:focus ~ label {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+  }
+  .form-check input[type="radio"] {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    opacity: 0;
+  }
 
-    /* --- Scale reference box — stack columns vertically on mobile --- */
-    .scale-ref > div[style*="display: flex"] {
-        flex-direction: column !important;
-        gap: 12px !important;
-    }
+  /* Inputs */
+  select { font-size: 16px; padding: 10px 8px; height: auto; }
+  input[type="number"] { width: 100%; font-size: 18px; padding: 10px; }
+  textarea { min-height: 60px; }
 
-    /* --- Language select — large touch-target language buttons --- */
-    .form-group .controls label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 20px;
-        background: #f8f9fa;
-        border: 2px solid #dee2e6;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        min-width: 120px;
-        justify-content: center;
-    }
-    .form-group .controls label:has(input:checked) {
-        border-color: #003366;
-        background: #eef2f7;
-    }
-    .form-group .controls input[type="radio"] {
-        transform: scale(1.3);
-    }
+  /* Submit */
+  button { width: 100%; padding: 14px; font-size: 17px; }
 
-    /* --- 0-10 radio scales → compact grid --- */
-    .radio-scale {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 4px;
-    }
-    .radio-scale label {
-        padding: 6px 2px;
-        min-width: unset;
-        font-size: 12px;
-    }
-    .radio-scale label input[type="radio"] {
-        transform: scale(1.4);
-    }
-    .radio-scale .nsp-label {
-        margin-left: 0;
-        padding-left: 0;
-        border-left: none;
-        grid-column: span 1;
-    }
+  /* q-likert: stacked card view */
+  .ql-head { display: none; }
+  .ql-row {
+    display: flex; flex-wrap: wrap;
+    padding: 14px 0; border-bottom: 1px solid #e9ecef; gap: 3px;
+  }
+  .ql-row:last-child { border-bottom: none; }
+  .ql-statement {
+    flex: 0 0 100%; padding: 0 0 10px;
+    font-size: 14px; font-weight: 500;
+  }
+  .ql-cell.radio-cell {
+    flex: 1; min-height: 44px; border-radius: 6px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 3px;
+  }
+  /* Hide radio dot on mobile */
+  .ql-cell.radio-cell input[type="radio"] {
+    position: absolute; left: -9999px; opacity: 0;
+  }
+  /* Brighter colors on mobile */
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(2) { background: var(--sc5-1h); }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(3) { background: var(--sc5-2h); }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(4) { background: var(--sc5-3h); }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(5) { background: var(--sc5-4h); }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(6) { background: var(--sc5-5h); }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(7) { background: var(--sc5-nh); }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(2) { background: var(--fsm-1h); }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(3) { background: var(--fsm-2h); }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(4) { background: var(--fsm-3h); }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(5) { background: var(--fsm-4h); }
+  /* Number labels from ::before */
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(2)::before { content:"1"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(3)::before { content:"2"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(4)::before { content:"3"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(5)::before { content:"4"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(6)::before { content:"5"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert:not(.scale-fsm) .ql-row .ql-cell:nth-child(7)::before { content:"N/A"; display:block; font-size:10px; font-weight:600; color:#555; }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(2)::before { content:"▼"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(3)::before { content:"="; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(4)::before { content:"▲"; display:block; font-size:11px; font-weight:600; color:#555; }
+  .q-likert.scale-fsm .ql-row .ql-cell:nth-child(5)::before { content:"—"; display:block; font-size:11px; font-weight:600; color:#555; }
 
-    /* Bigger touch targets — radio/checkbox choice lists */
-    .form-check {
-        padding: 2px 0;
-    }
-    .form-check label {
-        display: flex;
-        align-items: center;
-        padding: 10px 12px;
-        font-size: 15px;
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 6px;
-        margin-bottom: 6px;
-        cursor: pointer;
-        line-height: 1.4;
-    }
-    .form-check label:active { background: #e9ecef; }
-    .form-check input[type="radio"] {
-        transform: scale(1.4);
-        margin-right: 10px;
-        flex-shrink: 0;
-    }
+  /* q-paired: compact on mobile */
+  .qp-label { width: 80px; font-size: 11px; }
+  .qp-cells { gap: 4px; }
+  .qp-cell { min-height: 40px; font-size: 13px; }
 
-    /* Dropdowns and number inputs */
-    select {
-        font-size: 16px !important;
-        padding: 10px 8px !important;
-        height: auto !important;
-    }
-    input[type="number"] {
-        width: 100px;
-        font-size: 18px;
-        padding: 10px;
-        text-align: center;
-    }
+  /* 0-10 scale: smaller font on narrow screens */
+  .radio-scale label { font-size: 11px; padding: 10px 2px; }
+  .radio-scale .nsp-label { font-size: 10px; min-width: 28px; }
 
-    /* Scale hint — smaller */
-    .scale-hint { font-size: 12px; line-height: 1.5; }
+  /* Service rows: stack */
+  .service-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .service-name { width: 100%; }
 
-    /* NSP label — visually distinct on mobile */
-    .radio-scale .nsp-label {
-        background: #e9ecef !important;
-        border-radius: 6px;
-        border-left: none;
-        margin-left: 0;
-        padding-left: 2px;
-        font-size: 11px;
-    }
+  /* Scale ref: column on small screens */
+  .scale-ref > div[style*="display: flex"] { flex-direction: column !important; gap: 12px !important; }
+  .scale-ref-cols { flex-direction: column; gap: 12px; }
+
+  /* Scale hint horizontal scroll */
+  .scale-hint {
+    font-size: 12px; overflow-x: auto;
+    white-space: nowrap; scrollbar-width: none; padding-bottom: 4px;
+  }
+  .scale-hint::-webkit-scrollbar { display: none; }
+
+  .thank-you { margin: 30px auto; }
 }
 
-@media (max-width: 480px) {
-    .title h1 { font-size: 1rem; }
-    .thank-you { margin: 30px auto; }
-    .question-card { padding: 12px; margin-bottom: 15px; }
-    .section-header { padding: 12px 14px; }
-    .section-header h2 { font-size: 1.15rem; }
-
-    /* 0-10 scale: 4 columns so touch targets are larger on small phones */
-    .radio-scale {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 3px;
-    }
-    .radio-scale label {
-        padding: 8px 2px;
-        font-size: 13px;
-    }
-    .radio-scale .nsp-label {
-        grid-column: span 2;
-    }
-
-    /* Header — tighten up on very small phones */
-    .header-container { padding: 8px; gap: 6px; }
-    .logo img { max-height: 60px; }
-
-    /* textarea: reduce min-height on small screens */
-    textarea { min-height: 60px; }
+@media (max-width: 479px) {
+  .title h1 { font-size: 1rem; }
+  .header-container { padding: 8px; gap: 6px; }
+  .logo img { max-height: 60px; }
+  .question-card { padding: 12px; margin-bottom: 12px; }
+  .section-header { padding: 10px 12px; }
+  .section-header h2 { font-size: 1.05rem; }
 }

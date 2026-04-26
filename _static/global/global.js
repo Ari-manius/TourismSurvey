@@ -1,13 +1,12 @@
-// Shuffle rows within all <tbody class="randomize-rows"> elements
+// Shuffle children of any .randomize-rows container (tbody or div)
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('tbody.randomize-rows').forEach(function (tbody) {
-        var rows = Array.from(tbody.children);
-        for (var i = rows.length - 1; i > 0; i--) {
+    document.querySelectorAll('.randomize-rows').forEach(function (container) {
+        var items = Array.from(container.children);
+        for (var i = items.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
-            tbody.appendChild(rows[j]);
-            rows.splice(j, 1);
+            container.appendChild(items[j]);
+            items.splice(j, 1);
         }
-        // append the remaining first element
-        tbody.appendChild(rows[0]);
+        container.appendChild(items[0]);
     });
 });

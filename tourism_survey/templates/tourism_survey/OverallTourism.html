@@ -24,7 +24,20 @@
             <span class="scale-label">{% if lang == "fr" %} Sur une échelle de 0 à 10, comment évalueriez-vous le niveau actuel de développement touristique en Nouvelle-Calédonie ?{% else %} On a scale of 0 to 10, how would you rate the current level of tourism development in New Caledonia?{% endif %}</span>
             {{ formfield_errors 'Q6' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout développé &middot; 10 = Beaucoup trop développé &middot; NSP = Ne Sait Pas{% else %}0 = Not at all developed &middot; 10 = Far too developed &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q6" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q6" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q6" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q6" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q6" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q6" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q6" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q6" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q6" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q6" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q6" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q6" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q6" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q6" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q6" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q6" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q6" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q6" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q6" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q6" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q6" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q6" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q6" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q6" value="99"></label>
+            </div>
         </div>
     </div>
 
@@ -57,7 +70,20 @@
             <span class="scale-label">{% if lang == "fr" %} Sur une échelle de 0 à 10, à quel point êtes-vous satisfait(e) de la gestion du développement touristique en Nouvelle-Calédonie jusqu'à présent ?{% else %} On a scale of 0 to 10, how satisfied are you with the management of tourism development in New Caledonia so far?{% endif %}</span>
             {{ formfield_errors 'Q8' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Tout à fait satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Not at all satisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q8" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q8" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q8" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q8" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q8" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q8" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q8" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q8" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q8" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q8" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q8" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q8" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q8" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q8" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q8" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q8" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q8" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q8" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q8" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q8" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q8" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q8" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q8" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q8" value="99"></label>
+            </div>
         </div>
     </div>
 

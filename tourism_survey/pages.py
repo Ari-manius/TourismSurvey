@@ -1,5 +1,6 @@
 from ._builtin import Page
 from .models import Player
+from datetime import datetime, timezone
 
 
 class BasePage(Page):
@@ -20,7 +21,13 @@ class LanguageSelect(BasePage):
 
 class Screening(BasePage):
     form_model = Player
-    form_fields = ['Q1', 'Q2', 'Q3_province', 'Q3_municipality', 'Q4']
+    form_fields = [
+        'meta_timestamp', 'meta_device_type', 'meta_os', 'meta_browser',
+        'meta_screen_width', 'meta_screen_height', 'meta_viewport_width', 'meta_viewport_height',
+        'meta_timezone', 'meta_language', 'meta_user_agent',
+        'meta_connection_type', 'meta_touch_support', 'meta_referrer',
+        'Q1', 'Q2', 'Q3_province', 'Q3_municipality', 'Q4',
+    ]
 
     def before_next_page(self):
         if self.player.Q1 == 3 or self.player.Q2 == 1:
@@ -74,7 +81,8 @@ class ServiceSatisfaction(BasePage):
     form_model = Player
     form_fields = [
         'Q10_education', 'Q10_health', 'Q10_water', 'Q10_electricity',
-        'Q10_transport', 'Q10_other', 'Q10_other_specify',
+        'Q10_public_transport', 'Q10_private_transport', 'Q10_admin_services',
+        'Q10_other', 'Q10_other_specify',
         'Q11', 'Q12', 'Q13', 'Q14', 'Q15',
     ]
 
@@ -131,6 +139,17 @@ class Demographics(BasePage):
 
     def is_displayed(self):
         return not self.player.screened_out
+
+    def before_next_page(self):
+        end = datetime.now(timezone.utc)
+        self.player.meta_end_timestamp = end.isoformat()
+        try:
+            start_str = self.player.meta_timestamp
+            if start_str:
+                start = datetime.fromisoformat(start_str.replace('Z', '+00:00'))
+                self.player.meta_duration_seconds = int((end - start).total_seconds())
+        except Exception:
+            pass
 
 
 class ThankYou(BasePage):

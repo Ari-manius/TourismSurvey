@@ -27,27 +27,70 @@
         {% endif %}
     </div>
 
-    <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q16a' }}
-    {{ formfield_errors 'Q16b' }}
-    {{ formfield_errors 'Q16c' }}
-    {{ formfield_errors 'Q16d' }}
-    {{ formfield_errors 'Q16e' }}
-    <table class="survey-table" style="margin-bottom: 0;">
-        <thead><tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr></thead>
-        <tbody class="randomize-rows">
-            <tr><td class="statement">{% if lang == "fr" %}Je suis satisfait(e) de ma vie dans son ensemble{% else %}I am satisfied with my life as a whole{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q16a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16a" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Les conditions de ma vie sont excellentes{% else %}The conditions of my life are excellent{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q16b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16b" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Ma vie est proche de l'idéal à bien des égards{% else %}My life is close to ideal in many respects{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q16c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16c" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Jusqu'à présent, j'ai obtenu les choses importantes que je souhaitais dans la vie{% else %}So far, I have obtained the important things I wanted in life{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q16d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16d" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Si je pouvais revivre ma vie, je ne changerais presque rien{% else %}If I could relive my life, I would change almost nothing{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q16e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q16e" value="99"></td></tr>
-        </tbody>
-    </table>
+    <div class="question-card" style="padding: 0;">
+        {{ formfield_errors 'Q16a' }}
+        {{ formfield_errors 'Q16b' }}
+        {{ formfield_errors 'Q16c' }}
+        {{ formfield_errors 'Q16d' }}
+        {{ formfield_errors 'Q16e' }}
+        <div class="q-likert">
+            <div class="ql-head">
+                <div class="ql-statement"></div>
+                <div class="ql-cell">1</div>
+                <div class="ql-cell">2</div>
+                <div class="ql-cell">3</div>
+                <div class="ql-cell">4</div>
+                <div class="ql-cell">5</div>
+                <div class="ql-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</div>
+            </div>
+            <div class="randomize-rows">
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Je suis satisfait(e) de ma vie dans son ensemble{% else %}I am satisfied with my life as a whole{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16a" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Les conditions de ma vie sont excellentes{% else %}The conditions of my life are excellent{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16b" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Ma vie est proche de l'idéal à bien des égards{% else %}My life is close to ideal in many respects{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16c" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Jusqu'à présent, j'ai obtenu les choses importantes que je souhaitais dans la vie{% else %}So far, I have obtained the important things I wanted in life{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16d" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Si je pouvais revivre ma vie, je ne changerais presque rien{% else %}If I could relive my life, I would change almost nothing{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q16e" value="99"></label>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="submit-row">

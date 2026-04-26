@@ -160,4 +160,28 @@
     });
 })();
 </script>
+
+<script>
+/* Add .checked class to parent label/cell on radio select — fallback for browsers without :has() */
+(function () {
+    function syncChecked(radio) {
+        var name = radio.name;
+        if (!name) return;
+        document.querySelectorAll('input[type="radio"][name="' + name + '"]').forEach(function (r) {
+            var cell = r.parentElement;
+            if (cell) cell.classList.toggle('checked', r.checked);
+        });
+    }
+
+    function initChecked() {
+        document.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+            radio.addEventListener('change', function () { syncChecked(radio); });
+            if (radio.checked) syncChecked(radio);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initChecked);
+    window.addEventListener('load', function () { setTimeout(initChecked, 350); });
+})();
+</script>
 {% endblock %}

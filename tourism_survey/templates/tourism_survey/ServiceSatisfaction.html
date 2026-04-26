@@ -20,7 +20,7 @@
 
     <!-- Q10: Service matrix -->
     <div class="question-card">
-        <span class="question-label" style="display:block; font-weight:600; color:#333; margin-bottom:12px; font-size:15px; line-height:1.5;">{% if lang == "fr" %} Sur une échelle de 0 à 10, comment évalueriez-vous votre niveau de satisfaction concernant l'accès aux services suivants en Nouvelle-Calédonie ?{% else %} On a scale of 0 to 10, how would you evaluate your satisfaction with access to the following services in New Caledonia?{% endif %}</span>
+        <span class="question-label">{% if lang == "fr" %} Sur une échelle de 0 à 10, comment évalueriez-vous votre niveau de satisfaction concernant l'accès aux services suivants en Nouvelle-Calédonie ?{% else %} On a scale of 0 to 10, how would you evaluate your satisfaction with access to the following services in New Caledonia?{% endif %}</span>
         {{ formfield_errors 'Q10_education' }}
         {{ formfield_errors 'Q10_health' }}
         {{ formfield_errors 'Q10_water' }}
@@ -28,42 +28,158 @@
         {{ formfield_errors 'Q10_public_transport' }}
         {{ formfield_errors 'Q10_private_transport' }}
         {{ formfield_errors 'Q10_admin_services' }}
-        <!-- {{ formfield_errors 'Q10_other' }}
-        {{ formfield_errors 'Q10_other_specify' }} -->
-        <div class="scale-hint" style="font-size:13px; color:#777; margin-bottom:15px;">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Complètement satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Completely dissatisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
+        <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Complètement satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Completely dissatisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
 
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Éducation (disponibilité &amp; accessibilité){% else %}Education (availability &amp; accessibility){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_education" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_education" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_education" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_education" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_education" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_education" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_education" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_education" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_education" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_education" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_education" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_education" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_education" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_education" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_education" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_education" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_education" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_education" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_education" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_education" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_education" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_education" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_education" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_education" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Santé (disponibilité, accessibilité &amp; prix){% else %}Health (availability, accessibility &amp; price){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_health" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_health" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_health" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_health" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_health" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_health" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_health" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_health" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_health" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_health" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_health" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_health" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_health" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_health" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_health" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_health" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_health" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_health" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_health" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_health" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_health" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_health" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_health" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_health" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Eau (disponibilité, accessibilité &amp; prix){% else %}Water (availability, accessibility &amp; price){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_water" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_water" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_water" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_water" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_water" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_water" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_water" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_water" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_water" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_water" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_water" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_water" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_water" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_water" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_water" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_water" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_water" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_water" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_water" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_water" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_water" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_water" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_water" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_water" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Électricité (disponibilité, fiabilité &amp; accessibilité financière){% else %}Electricity (availability, reliability &amp; affordability){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_electricity" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_electricity" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_electricity" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_electricity" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_electricity" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_electricity" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_electricity" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_electricity" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_electricity" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_electricity" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_electricity" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_electricity" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_electricity" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_electricity" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_electricity" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_electricity" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_electricity" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_electricity" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_electricity" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_electricity" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_electricity" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_electricity" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_electricity" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_electricity" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Transport public (disponibilité, prix &amp; fiabilité){% else %}Public transport (availability, price &amp; reliability){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_public_transport" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_public_transport" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_public_transport" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_public_transport" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_public_transport" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_public_transport" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_public_transport" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_public_transport" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_public_transport" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_public_transport" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_public_transport" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_public_transport" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_public_transport" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_public_transport" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_public_transport" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_public_transport" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_public_transport" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_public_transport" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_public_transport" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_public_transport" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_public_transport" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_public_transport" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_public_transport" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_public_transport" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Transport privé (infrastructure &amp; conditions routières){% else %}Private transport (infrastructure &amp; road conditions){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_private_transport" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_private_transport" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_private_transport" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_private_transport" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_private_transport" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_private_transport" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_private_transport" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_private_transport" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_private_transport" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_private_transport" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_private_transport" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_private_transport" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_private_transport" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_private_transport" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_private_transport" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_private_transport" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_private_transport" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_private_transport" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_private_transport" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_private_transport" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_private_transport" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_private_transport" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_private_transport" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_private_transport" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Services administratifs (accessibilité &amp; efficacité){% else %}Administrative services (accessibility &amp; efficiency){% endif %}</span>
-            <div class="service-input"><div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q10_admin_services" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q10_admin_services" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q10_admin_services" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q10_admin_services" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q10_admin_services" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q10_admin_services" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q10_admin_services" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q10_admin_services" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q10_admin_services" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q10_admin_services" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q10_admin_services" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_admin_services" value="99"></label></div></div>
+            <div class="service-input">
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" required name="Q10_admin_services" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" required name="Q10_admin_services" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" required name="Q10_admin_services" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" required name="Q10_admin_services" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" required name="Q10_admin_services" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" required name="Q10_admin_services" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" required name="Q10_admin_services" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" required name="Q10_admin_services" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" required name="Q10_admin_services" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" required name="Q10_admin_services" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" required name="Q10_admin_services" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q10_admin_services" value="99"></label>
+                </div>
+            </div>
         </div>
         <div class="service-row">
             <span class="service-name">{% if lang == "fr" %}Autre{% else %}Other{% endif %}</span>
             <div class="service-input">
-                <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" name="Q10_other" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" name="Q10_other" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" name="Q10_other" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" name="Q10_other" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" name="Q10_other" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" name="Q10_other" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" name="Q10_other" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" name="Q10_other" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" name="Q10_other" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" name="Q10_other" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" name="Q10_other" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" name="Q10_other" value="99"></label></div>
+                <div class="radio-scale">
+                    <label class="sc-10-0"><span>0</span><input type="radio" name="Q10_other" value="0"></label>
+                    <label class="sc-10-1"><span>1</span><input type="radio" name="Q10_other" value="1"></label>
+                    <label class="sc-10-2"><span>2</span><input type="radio" name="Q10_other" value="2"></label>
+                    <label class="sc-10-3"><span>3</span><input type="radio" name="Q10_other" value="3"></label>
+                    <label class="sc-10-4"><span>4</span><input type="radio" name="Q10_other" value="4"></label>
+                    <label class="sc-10-5"><span>5</span><input type="radio" name="Q10_other" value="5"></label>
+                    <label class="sc-10-6"><span>6</span><input type="radio" name="Q10_other" value="6"></label>
+                    <label class="sc-10-7"><span>7</span><input type="radio" name="Q10_other" value="7"></label>
+                    <label class="sc-10-8"><span>8</span><input type="radio" name="Q10_other" value="8"></label>
+                    <label class="sc-10-9"><span>9</span><input type="radio" name="Q10_other" value="9"></label>
+                    <label class="sc-10-10"><span>10</span><input type="radio" name="Q10_other" value="10"></label>
+                    <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" name="Q10_other" value="99"></label>
+                </div>
                 <input type="text" name="Q10_other_specify" placeholder="{% if lang == 'fr' %}Veuillez préciser...{% else %}Please specify...{% endif %}" style="min-height: auto; margin-top: 8px;">
             </div>
         </div>
@@ -75,7 +191,20 @@
             <span class="scale-label">{% if lang == "fr" %} Satisfaction à l'égard du coût de la vie en Nouvelle-Calédonie{% else %} Satisfaction with cost of living in New Caledonia{% endif %}</span>
             {{ formfield_errors 'Q11' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Complètement satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Completely dissatisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q11" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q11" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q11" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q11" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q11" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q11" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q11" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q11" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q11" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q11" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q11" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q11" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q11" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q11" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q11" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q11" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q11" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q11" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q11" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q11" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q11" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q11" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q11" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q11" value="99"></label>
+            </div>
         </div>
     </div>
 
@@ -85,7 +214,20 @@
             <span class="scale-label">{% if lang == "fr" %} Opportunités d'emploi et conditions de travail{% else %} Job opportunities and working conditions{% endif %}</span>
             {{ formfield_errors 'Q12' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Complètement satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Completely dissatisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q12" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q12" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q12" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q12" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q12" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q12" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q12" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q12" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q12" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q12" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q12" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q12" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q12" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q12" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q12" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q12" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q12" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q12" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q12" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q12" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q12" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q12" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q12" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q12" value="99"></label>
+            </div>
         </div>
     </div>
 
@@ -95,7 +237,20 @@
             <span class="scale-label">{% if lang == "fr" %} Vous sentez-vous en sécurité au quotidien ?{% else %} Do you feel safe in your daily life?{% endif %}</span>
             {{ formfield_errors 'Q13' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout en sécurité &middot; 10 = Tout à fait en sécurité &middot; NSP = Ne Sait Pas{% else %}0 = Not safe at all &middot; 10 = Completely safe &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q13" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q13" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q13" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q13" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q13" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q13" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q13" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q13" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q13" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q13" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q13" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q13" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q13" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q13" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q13" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q13" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q13" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q13" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q13" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q13" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q13" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q13" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q13" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q13" value="99"></label>
+            </div>
         </div>
     </div>
 
@@ -105,7 +260,20 @@
             <span class="scale-label">{% if lang == "fr" %} Satisfaction globale de la qualité de vie en Nouvelle-Calédonie{% else %} Overall quality of life satisfaction in New Caledonia{% endif %}</span>
             {{ formfield_errors 'Q14' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout satisfait(e) &middot; 10 = Complètement satisfait(e) &middot; NSP = Ne Sait Pas{% else %}0 = Completely dissatisfied &middot; 10 = Completely satisfied &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q14" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q14" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q14" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q14" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q14" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q14" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q14" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q14" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q14" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q14" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q14" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q14" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q14" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q14" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q14" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q14" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q14" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q14" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q14" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q14" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q14" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q14" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q14" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q14" value="99"></label>
+            </div>
         </div>
     </div>
 
@@ -115,7 +283,20 @@
             <span class="scale-label">{% if lang == "fr" %} À quel point vous sentez-vous heureux(se) dans votre vie quotidienne ?{% else %} How happy do you feel in your daily life?{% endif %}</span>
             {{ formfield_errors 'Q15' }}
             <div class="scale-hint">{% if lang == "fr" %}0 = Pas du tout heureux(se) &middot; 10 = Entièrement heureux(se) &middot; NSP = Ne Sait Pas{% else %}0 = Not at all happy &middot; 10 = Completely happy &middot; N/A = No Answer{% endif %}</div>
-            <div class="radio-scale"><label style="background:#e57373 !important;border-radius:4px;color:#333 !important"><span>0</span><input type="radio" required name="Q15" value="0"></label><label style="background:#ef9a9a !important;border-radius:4px;color:#333 !important"><span>1</span><input type="radio" required name="Q15" value="1"></label><label style="background:#ffab91 !important;border-radius:4px;color:#333 !important"><span>2</span><input type="radio" required name="Q15" value="2"></label><label style="background:#ffcc80 !important;border-radius:4px;color:#333 !important"><span>3</span><input type="radio" required name="Q15" value="3"></label><label style="background:#ffe082 !important;border-radius:4px;color:#333 !important"><span>4</span><input type="radio" required name="Q15" value="4"></label><label style="background:#fff9c4 !important;border-radius:4px;color:#333 !important"><span>5</span><input type="radio" required name="Q15" value="5"></label><label style="background:#e6ee9c !important;border-radius:4px;color:#333 !important"><span>6</span><input type="radio" required name="Q15" value="6"></label><label style="background:#c5e1a5 !important;border-radius:4px;color:#333 !important"><span>7</span><input type="radio" required name="Q15" value="7"></label><label style="background:#a5d6a7 !important;border-radius:4px;color:#333 !important"><span>8</span><input type="radio" required name="Q15" value="8"></label><label style="background:#81c784 !important;border-radius:4px;color:#333 !important"><span>9</span><input type="radio" required name="Q15" value="9"></label><label style="background:#66bb6a !important;border-radius:4px;color:#333 !important"><span>10</span><input type="radio" required name="Q15" value="10"></label><label class="nsp-label"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q15" value="99"></label></div>
+            <div class="radio-scale">
+                <label class="sc-10-0"><span>0</span><input type="radio" required name="Q15" value="0"></label>
+                <label class="sc-10-1"><span>1</span><input type="radio" required name="Q15" value="1"></label>
+                <label class="sc-10-2"><span>2</span><input type="radio" required name="Q15" value="2"></label>
+                <label class="sc-10-3"><span>3</span><input type="radio" required name="Q15" value="3"></label>
+                <label class="sc-10-4"><span>4</span><input type="radio" required name="Q15" value="4"></label>
+                <label class="sc-10-5"><span>5</span><input type="radio" required name="Q15" value="5"></label>
+                <label class="sc-10-6"><span>6</span><input type="radio" required name="Q15" value="6"></label>
+                <label class="sc-10-7"><span>7</span><input type="radio" required name="Q15" value="7"></label>
+                <label class="sc-10-8"><span>8</span><input type="radio" required name="Q15" value="8"></label>
+                <label class="sc-10-9"><span>9</span><input type="radio" required name="Q15" value="9"></label>
+                <label class="sc-10-10"><span>10</span><input type="radio" required name="Q15" value="10"></label>
+                <label class="nsp-label sc-10-na"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span><input type="radio" required name="Q15" value="99"></label>
+            </div>
         </div>
     </div>
 

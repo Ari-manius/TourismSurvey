@@ -17,7 +17,7 @@
 - [x] Randomize order of answer options for questions with tables 
 - [ ] make survey modular for other Islands and Universisities 
 	- what would need to be changed 
-- [ ] add survey link to screenout and Endpage
+- [x] add survey link to screenout and Endpage
 
 ### Specific Questions 
 - [x] Q22: Change to local tourism and Tourism from French Polynesia 
@@ -43,7 +43,7 @@
 - [x] Municipality Field 
 
 ### General
-- [ ] Is there a budget to get a server? Alternative to server in Konstanz, about 7€ per month 
-- [ ] Share with other University and see if they are interested
+- [x] Is there a budget to get a server? Alternative to server in Konstanz, about 7€ per month 
+- [x] Share with other University and see if they are interested
 - [x] Update with french polensia survey v2
-- [ ] Pilot testing 
+- [x] Pilot testing 

@@ -27,41 +27,110 @@
         {% endif %}
     </div>
 
-    <div class="question-card" style="padding: 0; overflow-x: auto;">
-    {{ formfield_errors 'Q9a' }}
-    {{ formfield_errors 'Q9b' }}
-    {{ formfield_errors 'Q9c' }}
-    {{ formfield_errors 'Q9d' }}
-    {{ formfield_errors 'Q9e' }}
-    {{ formfield_errors 'Q9f' }}
-    {{ formfield_errors 'Q9g' }}
-    {{ formfield_errors 'Q9h' }}
-    {{ formfield_errors 'Q9i' }}
-    <table class="survey-table" style="margin-bottom: 0;">
-        <thead>
-            <tr><th></th><th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th><th class="radio-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</th></tr>
-        </thead>
-        <tbody class="randomize-rows">
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme a amélioré ma qualité de vie{% else %}Tourism has improved my quality of life{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9a" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9a" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9a" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9a" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9a" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9a" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie me rend optimiste quant à son avenir{% else %}Tourism development in New Caledonia makes me optimistic about its future{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9b" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9b" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9b" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9b" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9b" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9b" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme favorise le sentiment d'appartenance au sein de la communauté locale{% else %}Tourism fosters a sense of belonging within the local community{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9c" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9c" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9c" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9c" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9c" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9c" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me donne le sentiment que ma culture est valorisée et appréciée{% else %}Tourism makes me feel that my culture is valued and appreciated{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9d" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9d" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9d" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9d" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9d" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9d" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Je me sens en sécurité en présence de touristes en Nouvelle-Calédonie{% else %}I feel safe in the presence of tourists in New Caledonia{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9e" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9e" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9e" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9e" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9e" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9e" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le tourisme me permet d'être fier(e) de l'endroit où je vis en Nouvelle-Calédonie{% else %}Tourism makes me proud of where I live in New Caledonia{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9f" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9f" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9f" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9f" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9f" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9f" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie me cause du stress{% else %}Tourism development in New Caledonia causes me stress{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9g" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9g" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9g" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9g" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9g" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9g" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie a affecté ma tranquillité au quotidien{% else %}Tourism development in New Caledonia has affected my daily peace and quiet{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9h" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9h" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9h" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9h" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9h" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9h" value="99"></td></tr>
-            <tr><td class="statement">{% if lang == "fr" %}Depuis que le tourisme s'est développé en Nouvelle-Calédonie, je me sens moins chez moi dans ma propre communauté{% else %}Since tourism developed in New Caledonia, I feel less at home in my own community{% endif %}</td>
-                <td class="radio-cell"><input type="radio" required name="Q9i" value="1"></td><td class="radio-cell"><input type="radio" required name="Q9i" value="2"></td><td class="radio-cell"><input type="radio" required name="Q9i" value="3"></td><td class="radio-cell"><input type="radio" required name="Q9i" value="4"></td><td class="radio-cell"><input type="radio" required name="Q9i" value="5"></td><td class="radio-cell"><input type="radio" required name="Q9i" value="99"></td></tr>
-        </tbody>
-    </table>
+    <div class="question-card" style="padding: 0;">
+        {{ formfield_errors 'Q9a' }}
+        {{ formfield_errors 'Q9b' }}
+        {{ formfield_errors 'Q9c' }}
+        {{ formfield_errors 'Q9d' }}
+        {{ formfield_errors 'Q9e' }}
+        {{ formfield_errors 'Q9f' }}
+        {{ formfield_errors 'Q9g' }}
+        {{ formfield_errors 'Q9h' }}
+        {{ formfield_errors 'Q9i' }}
+        <div class="q-likert">
+            <div class="ql-head">
+                <div class="ql-statement"></div>
+                <div class="ql-cell">1</div>
+                <div class="ql-cell">2</div>
+                <div class="ql-cell">3</div>
+                <div class="ql-cell">4</div>
+                <div class="ql-cell">5</div>
+                <div class="ql-cell">{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</div>
+            </div>
+            <div class="randomize-rows">
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le tourisme a amélioré ma qualité de vie{% else %}Tourism has improved my quality of life{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9a" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie me rend optimiste quant à son avenir{% else %}Tourism development in New Caledonia makes me optimistic about its future{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9b" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le tourisme favorise le sentiment d'appartenance au sein de la communauté locale{% else %}Tourism fosters a sense of belonging within the local community{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9c" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le tourisme me donne le sentiment que ma culture est valorisée et appréciée{% else %}Tourism makes me feel that my culture is valued and appreciated{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9d" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Je me sens en sécurité en présence de touristes en Nouvelle-Calédonie{% else %}I feel safe in the presence of tourists in New Caledonia{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9e" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le tourisme me permet d'être fier(e) de l'endroit où je vis en Nouvelle-Calédonie{% else %}Tourism makes me proud of where I live in New Caledonia{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9f" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie me cause du stress{% else %}Tourism development in New Caledonia causes me stress{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9g" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie a affecté ma tranquillité au quotidien{% else %}Tourism development in New Caledonia has affected my daily peace and quiet{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9h" value="99"></label>
+                </div>
+                <div class="ql-row">
+                    <div class="ql-statement">{% if lang == "fr" %}Depuis que le tourisme s'est développé en Nouvelle-Calédonie, je me sens moins chez moi dans ma propre communauté{% else %}Since tourism developed in New Caledonia, I feel less at home in my own community{% endif %}</div>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="1"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="2"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="3"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="4"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="5"></label>
+                    <label class="ql-cell radio-cell"><input type="radio" required name="Q9i" value="99"></label>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="submit-row">

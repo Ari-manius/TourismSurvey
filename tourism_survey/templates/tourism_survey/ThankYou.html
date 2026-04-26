@@ -4,24 +4,91 @@
 
 {{ block styles }}
 <link rel="stylesheet" href="{{ static 'global/global.css' }}">
+<style>
+  .share-box { margin-top: 24px; }
+  .share-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .btn-share, .btn-copy {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 6px; font-size: 14px;
+    font-weight: 600; text-decoration: none; color: white;
+    border: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--primary); }
+  .btn-copy.copied { background: #2e7d32; }
+  .btn-whatsapp { background: #25D366; }
+  .btn-sms { background: #555; }
+  .btn-email { background: #c0392b; }
+</style>
 {{ endblock }}
 
 {{ block content }}
 <div class="container">
     <div class="thank-you">
         {% if lang == "fr" %}
-            <h2>Merci!</h2>
+            <h2>Merci !</h2>
             <p>Merci beaucoup d'avoir pris le temps de répondre à cette enquête.</p>
             <p>Vos réponses sont précieuses pour notre recherche sur les perceptions du tourisme et la qualité de vie des résidents dans Nouvelle Calédonie.</p>
             <p>Nous vous serions très reconnaissants de bien vouloir partager le lien vers ce sondage avec votre famille, vos amis et vos connaissances.</p>
-            <p><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
+            <div class="share-box">
+                <div class="share-buttons" data-lang="fr">
+                    <button type="button" class="btn-copy" onclick="copyLink(this)">&#128203; Copier le lien</button>
+                    <a class="btn-share btn-whatsapp" href="https://wa.me/?text=Participez%20à%20cette%20enquête%20%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey" target="_blank">&#128226; WhatsApp</a>
+                    <a class="btn-share btn-sms" href="sms:?body=Participez%20à%20cette%20enquête%20%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey">&#128172; SMS</a>
+                    <a class="btn-share btn-email" href="mailto:?subject=Enquête%20sur%20le%20tourisme&body=Participez%20à%20cette%20enquête%20%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey">&#9993; E-mail</a>
+                </div>
+            </div>
+            <p style="margin-top:24px"><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
         {% else %}
             <h2>Thank You!</h2>
             <p>Thank you very much for taking the time to complete this survey.</p>
             <p>Your responses are valuable to our research on tourism perceptions and quality of life of residents in New Caledonia.</p>
-            <p>We would be very grateful if you would share the link to this survey with your family, friends and aquaintances.</p>
-            <p><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
+            <p>We would be very grateful if you would share the link to this survey with your family, friends and acquaintances.</p>
+            <div class="share-box">
+                <div class="share-buttons" data-lang="en">
+                    <button type="button" class="btn-copy" onclick="copyLink(this)">&#128203; Copy Link</button>
+                    <a class="btn-share btn-whatsapp" href="https://wa.me/?text=Please%20take%20this%20survey%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey" target="_blank">&#128226; WhatsApp</a>
+                    <a class="btn-share btn-sms" href="sms:?body=Please%20take%20this%20survey%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey">&#128172; SMS</a>
+                    <a class="btn-share btn-email" href="mailto:?subject=Tourism%20Survey&body=Please%20take%20this%20survey%3A%20http%3A%2F%2F46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org%2Froom%2FTourismSurvey">&#9993; E-mail</a>
+                </div>
+            </div>
+            <p style="margin-top:24px"><em>UNC: Université de Nouvelle Calédonie<br>IAE: L'Institut d'administration des entreprises</em></p>
         {% endif %}
     </div>
 </div>
+
+<script>
+var SURVEY_URL = 'http://46b12de5-70aa-43e9-bf51-39fa1b1991c2.fr.bw-cloud-instance.org/room/TourismSurvey';
+
+function copyLink(btn) {
+    var original = btn.innerHTML;
+    navigator.clipboard.writeText(SURVEY_URL).then(function () {
+        btn.innerHTML = '&#10003; Copié !';
+        btn.classList.add('copied');
+        setTimeout(function () { btn.innerHTML = original; btn.classList.remove('copied'); }, 2000);
+    });
+}
+
+function nativeShare(btn) {
+    var isFr = btn.dataset.lang === 'fr';
+    navigator.share({
+        title: isFr ? 'Enquête sur le tourisme' : 'Tourism Survey',
+        text: isFr ? 'Participez à cette enquête !' : 'Please take this survey!',
+        url: SURVEY_URL
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (navigator.share) {
+        document.querySelectorAll('.share-buttons').forEach(function (box) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-copy btn-native-share';
+            btn.dataset.lang = box.dataset.lang;
+            btn.innerHTML = '&#128279; ' + (box.dataset.lang === 'fr' ? 'Partager' : 'Share');
+            btn.onclick = function () { nativeShare(this); };
+            box.insertBefore(btn, box.firstChild);
+        });
+    }
+});
+</script>
 {{ endblock }}

@@ -20,16 +20,11 @@
     </div>
 
     <div class="scale-ref">
-        {% if lang == "fr" %}
-            <p>Cliquez sur les deux colonnes qui correspondent à votre opinion, selon cette échelle.</p>
-        {% else %}
-            <p>Click the two columns, following to your opinion, according to this scale.</p>
-        {% endif %}  
-        <div style="display: flex; gap: 30px; flex-wrap: wrap;">          
+        <div class="scale-ref-cols">
             <div>
                 {% if lang == "fr" %}
                     <strong>Importance :</strong><br>
-                    <span class="sc1">1 = Trés unimportant</span><br><span class="sc2">2 = Unimportant</span><br><span class="sc3">3 = Neutre</span><br><span class="sc4">4 = Important</span><br><span class="sc5">5 = Très important</span>
+                    <span class="sc1">1 = Très peu important</span><br><span class="sc2">2 = Peu important</span><br><span class="sc3">3 = Neutre</span><br><span class="sc4">4 = Important</span><br><span class="sc5">5 = Très important</span>
                 {% else %}
                     <strong>Importance:</strong><br>
                     <span class="sc1">1 = Very unimportant</span><br><span class="sc2">2 = Unimportant</span><br><span class="sc3">3 = Neutral</span><br><span class="sc4">4 = Important</span><br><span class="sc5">5 = Very important</span>
@@ -47,126 +42,381 @@
         </div>
     </div>
 
-    <div class="question-card" style="padding: 0; overflow-x: auto;">
-        <table class="survey-table paired" style="margin-bottom: 0;">
-            <colgroup>
-                <col style="width: auto;">
-                <col span="5" style="width: 30px;">
-                <col span="5" style="width: 30px;">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th rowspan="2" style="vertical-align: bottom;"></th>
-                    <th colspan="5" class="group-header">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</th>
-                    <th colspan="5" class="group-header col-divider">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</th>
-                </tr>
-                <tr>
-                    <th class="radio-cell">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th>
-                    <th class="radio-cell col-divider">1</th><th class="radio-cell">2</th><th class="radio-cell">3</th><th class="radio-cell">4</th><th class="radio-cell">5</th>
-                </tr>
-            </thead>
-            <tbody class="randomize-rows">
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le tourisme joue un rôle important dans l'économie locale de la Nouvelle-Calédonie{% else %}Tourism plays an important role in the local economy of New Caledonia{% endif %}        
-                    {{ formfield_errors 'Q5a_importance' }}
-                    {{ formfield_errors 'Q5a_satisfaction' }}</td>
-                    <td class="radio-cell"><input type="radio" required name="Q5a_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5a_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5a_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5a_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5a_importance" value="5"></td>                    <td class="radio-cell col-divider"><input type="radio" required name="Q5a_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5a_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5a_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5a_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5a_satisfaction" value="5"></td>                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le tourisme offre des opportunités d'emploi et de revenus aux résidents{% else %}Tourism offers employment and income opportunities for residents{% endif %}
-                    {{ formfield_errors 'Q5b_importance' }}
-                    {{ formfield_errors 'Q5b_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5b_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5b_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5b_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5b_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5b_importance" value="5"></td>                    <td class="radio-cell col-divider"><input type="radio" required name="Q5b_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5b_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5b_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5b_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5b_satisfaction" value="5"></td>                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le tourisme a contribué à l'amélioration des infrastructures locales, telles que les routes, les services de santé et les établissements scolaires{% else %}Tourism has contributed to the improvement of local infrastructure, such as roads, health services, and schools{% endif %}
-                    {{ formfield_errors 'Q5c_importance' }}
-                    {{ formfield_errors 'Q5c_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5c_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5c_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5c_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5c_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5c_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5c_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5c_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5c_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5c_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5c_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Les retombées économiques du tourisme profitent aussi aux populations les moins favorisées{% else %}The economic benefits of tourism also benefit disadvantaged populations{% endif %}
-                    {{ formfield_errors 'Q5d_importance' }}
-                    {{ formfield_errors 'Q5d_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5d_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5d_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5d_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5d_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5d_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5d_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5d_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5d_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5d_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5d_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le développement du tourisme a permis à des résidents locaux de créer leur propre entreprise{% else %}Tourism development has enabled local residents to start their own business{% endif %}
-                    {{ formfield_errors 'Q5e_importance' }}
-                    {{ formfield_errors 'Q5e_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5e_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5e_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5e_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5e_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5e_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5e_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5e_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5e_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5e_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5e_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le développement du tourisme a favorisé la cohésion et la fierté communautaire{% else %}Tourism development has fostered community cohesion and pride{% endif %}
-                    {{ formfield_errors 'Q5f_importance' }}
-                    {{ formfield_errors 'Q5f_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5f_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5f_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5f_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5f_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5f_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5f_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5f_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5f_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5f_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5f_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Les visiteurs respectent généralement la culture et les traditions locales{% else %}Visitors generally respect local culture and traditions{% endif %}
-                    {{ formfield_errors 'Q5g_importance' }}
-                    {{ formfield_errors 'Q5g_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5g_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5g_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5g_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5g_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5g_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5g_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5g_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5g_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5g_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5g_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le coût de la vie en Nouvelle-Calédonie reste abordable{% else %}The cost of living in New Caledonia remains affordable{% endif %}
-                    {{ formfield_errors 'Q5h_importance' }}
-                    {{ formfield_errors 'Q5h_satisfaction' }}
-                    </td>                    
-                    <td class="radio-cell"><input type="radio" required name="Q5h_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5h_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5h_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5h_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5h_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5h_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5h_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5h_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5h_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5h_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Les effets du tourisme sur les ressources naturelles et les écosystèmes sont bien gérés{% else %}The effects of tourism on natural resources and ecosystems are well managed{% endif %}
-                    {{ formfield_errors 'Q5i_importance' }}
-                    {{ formfield_errors 'Q5i_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5i_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5i_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5i_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5i_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5i_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5i_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5i_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5i_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5i_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5i_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}La gestion des déchets liés au tourisme est suffisante pour protéger l'environnement{% else %}Waste management related to tourism is sufficient to protect the environment{% endif %}
-                    {{ formfield_errors 'Q5j_importance' }}
-                    {{ formfield_errors 'Q5j_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5j_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5j_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5j_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5j_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5j_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5j_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5j_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5j_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5j_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5j_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Les effets du tourisme sur les traditions et le mode de vie en Nouvelle-Calédonie sont bien maîtrisés{% else %}The effects of tourism on traditions and the way of life in New Caledonia are well managed{% endif %}
-                    {{ formfield_errors 'Q5k_importance' }}
-                    {{ formfield_errors 'Q5k_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5k_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5k_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5k_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5k_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5k_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5k_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5k_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5k_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5k_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5k_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie respecte les valeurs et coutumes locales{% else %}Tourism development in New Caledonia respects local values and customs{% endif %}
-                    {{ formfield_errors 'Q5l_importance' }}
-                    {{ formfield_errors 'Q5l_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5l_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5l_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5l_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5l_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5l_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5l_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5l_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5l_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5l_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5l_satisfaction" value="5"></td>
-                </tr>
-                <tr>
-                    <td class="statement">{% if lang == "fr" %}Le tourisme en Nouvelle-Calédonie contribue à préserver les coutumes et les traditions auprès des jeunes générations{% else %}Tourism in New Caledonia helps preserve customs and traditions for younger generations{% endif %}
-                    {{ formfield_errors 'Q5m_importance' }}
-                    {{ formfield_errors 'Q5m_satisfaction' }}
-                    </td>
-                    <td class="radio-cell"><input type="radio" required name="Q5m_importance" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5m_importance" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5m_importance" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5m_importance" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5m_importance" value="5"></td>
-                    <td class="radio-cell col-divider"><input type="radio" required name="Q5m_satisfaction" value="1"></td><td class="radio-cell"><input type="radio" required name="Q5m_satisfaction" value="2"></td><td class="radio-cell"><input type="radio" required name="Q5m_satisfaction" value="3"></td><td class="radio-cell"><input type="radio" required name="Q5m_satisfaction" value="4"></td><td class="radio-cell"><input type="radio" required name="Q5m_satisfaction" value="5"></td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- Q5a -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le tourisme joue un rôle important dans l'économie locale de la Nouvelle-Calédonie{% else %}Tourism plays an important role in the local economy of New Caledonia{% endif %}</div>
+        {{ formfield_errors 'Q5a_importance' }}
+        {{ formfield_errors 'Q5a_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5a_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5a_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5a_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5a_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5a_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5b -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le tourisme offre des opportunités d'emploi et de revenus aux résidents{% else %}Tourism offers employment and income opportunities for residents{% endif %}</div>
+        {{ formfield_errors 'Q5b_importance' }}
+        {{ formfield_errors 'Q5b_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5b_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5b_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5b_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5b_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5b_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5c -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le tourisme a contribué à l'amélioration des infrastructures locales, telles que les routes, les services de santé et les établissements scolaires{% else %}Tourism has contributed to the improvement of local infrastructure, such as roads, health services, and schools{% endif %}</div>
+        {{ formfield_errors 'Q5c_importance' }}
+        {{ formfield_errors 'Q5c_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5c_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5c_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5c_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5c_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5c_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5d -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Les retombées économiques du tourisme profitent aussi aux populations les moins favorisées{% else %}The economic benefits of tourism also benefit disadvantaged populations{% endif %}</div>
+        {{ formfield_errors 'Q5d_importance' }}
+        {{ formfield_errors 'Q5d_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5d_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5d_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5d_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5d_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5d_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5e -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le développement du tourisme a permis à des résidents locaux de créer leur propre entreprise{% else %}Tourism development has enabled local residents to start their own business{% endif %}</div>
+        {{ formfield_errors 'Q5e_importance' }}
+        {{ formfield_errors 'Q5e_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5e_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5e_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5e_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5e_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5e_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5f -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le développement du tourisme a favorisé la cohésion et la fierté communautaire{% else %}Tourism development has fostered community cohesion and pride{% endif %}</div>
+        {{ formfield_errors 'Q5f_importance' }}
+        {{ formfield_errors 'Q5f_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5f_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5f_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5f_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5f_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5f_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5g -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Les visiteurs respectent généralement la culture et les traditions locales{% else %}Visitors generally respect local culture and traditions{% endif %}</div>
+        {{ formfield_errors 'Q5g_importance' }}
+        {{ formfield_errors 'Q5g_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5g_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5g_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5g_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5g_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5g_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5h -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le coût de la vie en Nouvelle-Calédonie reste abordable{% else %}The cost of living in New Caledonia remains affordable{% endif %}</div>
+        {{ formfield_errors 'Q5h_importance' }}
+        {{ formfield_errors 'Q5h_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5h_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5h_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5h_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5h_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5h_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5i -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Les effets du tourisme sur les ressources naturelles et les écosystèmes sont bien gérés{% else %}The effects of tourism on natural resources and ecosystems are well managed{% endif %}</div>
+        {{ formfield_errors 'Q5i_importance' }}
+        {{ formfield_errors 'Q5i_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5i_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5i_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5i_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5i_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5i_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5j -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}La gestion des déchets liés au tourisme est suffisante pour protéger l'environnement{% else %}Waste management related to tourism is sufficient to protect the environment{% endif %}</div>
+        {{ formfield_errors 'Q5j_importance' }}
+        {{ formfield_errors 'Q5j_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5j_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5j_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5j_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5j_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5j_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5k -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Les effets du tourisme sur les traditions et le mode de vie en Nouvelle-Calédonie sont bien maîtrisés{% else %}The effects of tourism on traditions and the way of life in New Caledonia are well managed{% endif %}</div>
+        {{ formfield_errors 'Q5k_importance' }}
+        {{ formfield_errors 'Q5k_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5k_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5k_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5k_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5k_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5k_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5l -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le développement du tourisme en Nouvelle-Calédonie respecte les valeurs et coutumes locales{% else %}Tourism development in New Caledonia respects local values and customs{% endif %}</div>
+        {{ formfield_errors 'Q5l_importance' }}
+        {{ formfield_errors 'Q5l_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5l_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5l_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5l_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5l_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5l_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Q5m -->
+    <div class="qp-item question-card">
+        <div class="qp-statement">{% if lang == "fr" %}Le tourisme en Nouvelle-Calédonie contribue à préserver les coutumes et les traditions auprès des jeunes générations{% else %}Tourism in New Caledonia helps preserve customs and traditions for younger generations{% endif %}</div>
+        {{ formfield_errors 'Q5m_importance' }}
+        {{ formfield_errors 'Q5m_satisfaction' }}
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Importance{% else %}Importance{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5m_importance" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_importance" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_importance" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_importance" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_importance" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5m_importance" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
+        <div class="qp-group">
+            <span class="qp-label">{% if lang == "fr" %}Satisfaction{% else %}Satisfaction{% endif %}</span>
+            <div class="qp-cells">
+                <label class="qp-cell"><input type="radio" required name="Q5m_satisfaction" value="1"><span>1</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_satisfaction" value="2"><span>2</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_satisfaction" value="3"><span>3</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_satisfaction" value="4"><span>4</span></label>
+                <label class="qp-cell"><input type="radio" required name="Q5m_satisfaction" value="5"><span>5</span></label>
+                <label class="qp-cell qp-na"><input type="radio" name="Q5m_satisfaction" value="99"><span>{% if lang == "fr" %}NSP{% else %}N/A{% endif %}</span></label>
+            </div>
+        </div>
     </div>
 
     <div class="submit-row">

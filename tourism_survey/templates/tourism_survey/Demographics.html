@@ -41,7 +41,7 @@
     <div class="question-card"><div class="question-block">
         <span class="question-label">{% if lang == "fr" %} Quelle est votre année de naissance ?{% else %} What is your birth year?{% endif %}</span>
         {{ formfield_errors 'Q24' }}
-        <input type="number" required name="Q24" min="1920" max="2008" placeholder="{% if lang == "fr" %}ex: 1990{% else %}e.g. 1990{% endif %}" style="width: 100%; padding: 8px; font-size: 1rem;">
+        <input type="number" required name="Q24" min="1920" max="2008" placeholder="{% if lang == "fr" %}ex: 1990{% else %}e.g. 1990{% endif %}" class="form-number-input">
     </div></div>
 
     <!-- Q25: Tourism work -->

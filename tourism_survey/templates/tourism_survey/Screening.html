@@ -7,6 +7,76 @@
 {{ endblock }}
 
 {{ block content }}
+<!-- Hidden meta fields — populated by JS before form submission -->
+<input type="hidden" name="meta_timestamp" id="meta_timestamp">
+<input type="hidden" name="meta_device_type" id="meta_device_type">
+<input type="hidden" name="meta_os" id="meta_os">
+<input type="hidden" name="meta_browser" id="meta_browser">
+<input type="hidden" name="meta_screen_width" id="meta_screen_width">
+<input type="hidden" name="meta_screen_height" id="meta_screen_height">
+<input type="hidden" name="meta_viewport_width" id="meta_viewport_width">
+<input type="hidden" name="meta_viewport_height" id="meta_viewport_height">
+<input type="hidden" name="meta_timezone" id="meta_timezone">
+<input type="hidden" name="meta_language" id="meta_language">
+<input type="hidden" name="meta_user_agent" id="meta_user_agent">
+<input type="hidden" name="meta_connection_type" id="meta_connection_type">
+<input type="hidden" name="meta_touch_support" id="meta_touch_support">
+<input type="hidden" name="meta_referrer" id="meta_referrer">
+
+<script>
+(function () {
+    function detectOS(ua) {
+        if (/Windows NT/.test(ua)) return 'Windows';
+        if (/Mac OS X/.test(ua) && !/iPhone|iPad/.test(ua)) return 'macOS';
+        if (/Android/.test(ua)) return 'Android';
+        if (/iPhone|iPad|iPod/.test(ua)) return 'iOS';
+        if (/Linux/.test(ua)) return 'Linux';
+        return 'Other';
+    }
+    function detectBrowser(ua) {
+        if (/Edg\//.test(ua)) return 'Edge';
+        if (/OPR\/|Opera/.test(ua)) return 'Opera';
+        if (/Chrome\//.test(ua)) return 'Chrome';
+        if (/Safari\//.test(ua) && !/Chrome/.test(ua)) return 'Safari';
+        if (/Firefox\//.test(ua)) return 'Firefox';
+        return 'Other';
+    }
+    function detectDevice(ua, w) {
+        if (/Mobi|Android|iPhone|iPod/.test(ua)) return 'mobile';
+        if (/iPad|Tablet/.test(ua) || (w >= 600 && w <= 1024)) return 'tablet';
+        return 'desktop';
+    }
+    function detectConnection() {
+        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (!conn) return 'unknown';
+        return conn.effectiveType || conn.type || 'unknown';
+    }
+
+    var ua  = navigator.userAgent;
+    var sw  = screen.width;
+    var sh  = screen.height;
+    var vw  = window.innerWidth;
+    var vh  = window.innerHeight;
+    var ref = document.referrer ? document.referrer.substring(0, 200) : 'direct';
+
+    document.getElementById('meta_timestamp').value      = new Date().toISOString();
+    document.getElementById('meta_device_type').value    = detectDevice(ua, sw);
+    document.getElementById('meta_os').value             = detectOS(ua);
+    document.getElementById('meta_browser').value        = detectBrowser(ua);
+    document.getElementById('meta_screen_width').value   = sw;
+    document.getElementById('meta_screen_height').value  = sh;
+    document.getElementById('meta_viewport_width').value = vw;
+    document.getElementById('meta_viewport_height').value= vh;
+    document.getElementById('meta_timezone').value       = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    document.getElementById('meta_language').value       = navigator.language || '';
+    document.getElementById('meta_user_agent').value     = ua.substring(0, 250);
+    document.getElementById('meta_connection_type').value= detectConnection();
+    document.getElementById('meta_touch_support').value  = ('ontouchstart' in window || navigator.maxTouchPoints > 0) ? 'yes' : 'no';
+    document.getElementById('meta_referrer').value       = ref;
+
+})();
+</script>
+
 <div class="container">
     <div class="section-header">
         {% if lang == "fr" %}
@@ -67,11 +137,11 @@
 
             {{ formfield_errors 'Q3_province' }}
             {{ formfield_errors 'Q3_municipality' }}
-            <div style="margin-bottom: 12px;">
-                <label for="id_Q3_province" style="font-weight: 600; display: block; margin-bottom: 4px;">
+            <div class="q-select-group">
+                <label for="id_Q3_province" class="q-select-label">
                     {% if lang == "fr" %}Province{% else %}Province{% endif %}
                 </label>
-                <select required name="Q3_province" id="id_Q3_province" style="width: 100%; padding: 8px; font-size: 1rem;">
+                <select required name="Q3_province" id="id_Q3_province" class="q-select">
                     <option value="">{% if lang == "fr" %}-- Sélectionnez une province --{% else %}-- Select a province --{% endif %}</option>
                     <option value="Province Sud">Province Sud</option>
                     <option value="Province Nord">Province Nord</option>
@@ -79,11 +149,11 @@
                 </select>
             </div>
 
-            <div>
-                <label for="id_Q3_municipality" style="font-weight: 600; display: block; margin-bottom: 4px;">
+            <div class="q-select-group">
+                <label for="id_Q3_municipality" class="q-select-label">
                     {% if lang == "fr" %}Commune{% else %}Municipality{% endif %}
                 </label>
-                <select name="Q3_municipality" id="id_Q3_municipality" style="width: 100%; padding: 8px; font-size: 1rem;" disabled>
+                <select name="Q3_municipality" id="id_Q3_municipality" class="q-select" disabled>
                     <option value="">{% if lang == "fr" %}-- Sélectionnez d'abord une province --{% else %}-- Select a province first --{% endif %}</option>
                 </select>
             </div>
@@ -192,4 +262,6 @@
         {% if lang == "fr" %}<button type="submit" class="otree-btn-next btn btn-primary">Suivant</button>{% else %}<button type="submit" class="otree-btn-next btn btn-primary">Next</button>{% endif %}
     </div>
 </div>
+
+<script src="{{ static 'global/global.js' }}"></script>
 {{ endblock }}
